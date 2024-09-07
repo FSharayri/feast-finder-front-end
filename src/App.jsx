@@ -51,6 +51,12 @@ function App() {
     setUser(authService.getUser())
   }
 
+  const handleAddRestaurant = async (restaurantFormData) => {
+    const newRestaurant = await restaurantService.create(restaurantFormData)
+    setRestaurants([newRestaurant, ...restaurants])
+    navigate('/restaurants')
+  }
+
   return (
     <>
       <h1>HELLO!</h1>
@@ -92,7 +98,7 @@ function App() {
           path="/auth/restaurants/new"
           element={
             <ProtectedRoute user={user}>
-              <NewRestaurant handleAuthEvt={handleAuthEvt} />
+              <NewRestaurant handleAddRestaurant={handleAddRestaurant} />
             </ProtectedRoute>
           }
         />
