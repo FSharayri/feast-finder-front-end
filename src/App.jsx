@@ -9,7 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
-//import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
+import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 //import DishList from './pages/DishList/DishList'
 //import DishDetails from './pages/DishDetails/DishDetails'
 
@@ -86,7 +86,13 @@ function App() {
           <RestaurantList restaurants={restaurants}/>
           }
         />
-      </Routes> 
+        <Route
+          path="/restaurants/:restaurantId"
+          element={
+              <RestaurantDetails/> 
+          }
+        /> 
+      </Routes>
     </>
   )
 }
