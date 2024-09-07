@@ -12,4 +12,17 @@ async function index() {
   }
 }
 
-export { index }
+async function show(restaurantId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${restaurantId}`)
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export {
+  index,
+  show,
+}
+
