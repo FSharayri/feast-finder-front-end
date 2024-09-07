@@ -9,6 +9,8 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
+import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
+
 //import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 //import DishList from './pages/DishList/DishList'
 //import DishDetails from './pages/DishDetails/DishDetails'
@@ -84,6 +86,14 @@ function App() {
           path="/restaurants"
           element={
           <RestaurantList restaurants={restaurants}/>
+          }
+        />
+        <Route
+          path="/auth/restaurants/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewRestaurant handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
           }
         />
       </Routes> 
