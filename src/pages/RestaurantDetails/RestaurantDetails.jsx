@@ -8,7 +8,7 @@ import * as restaurantService from '../../services/restaurantService'
 // css
 import styles from './RestaurantDetails.module.css'
 
-const RestaurantDetails = () => {
+const RestaurantDetails = (props) => {
   const {restaurantId} = useParams()
   const [restaurant, setRestaurant] = useState(null)
 
@@ -35,6 +35,12 @@ const RestaurantDetails = () => {
       <section>
         <h1>Dishes list</h1>
       </section>
+      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
+        <>   
+          <button onClick={() => props.handleDeleteBlog(restaurantId)} >   
+           <h1>Add Delete Icon here</h1>
+          </button>
+        </>
     </main>
   )
 }
