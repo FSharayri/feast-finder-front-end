@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // pages
@@ -19,7 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
-//import * as restaurantService from './services/restaurantService'
+import * as restaurantService from './services/restaurantService'
 //import * as dishService from './services/dishService'
 
 // styles
@@ -29,7 +29,15 @@ function App() {
   const [user, setUser] = useState(authService.
   getUser())
   const navigate = useNavigate()
-  // const [restaurants, setRestaurants] = useState([])
+  const [restaurants, setRestaurants] = useState([])
+
+  useEffect(() => {
+    const fetchAllRestrants = async () => {
+      const restaurantsData = await restaurantService.index()
+      setRestaurants(restaurantsData) 
+    }
+    fetchAllRestrants() 
+  }, [ ])
 
   const handleLogout = () => {
     authService.logout()
@@ -74,7 +82,9 @@ function App() {
         />
         <Route
           path="/restaurants"
-          element={<RestaurantList/>}
+          element={
+          <RestaurantList restaurants={restaurants}/>
+          }
         />
       </Routes> 
     </>

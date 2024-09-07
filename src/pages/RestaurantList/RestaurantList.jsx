@@ -1,10 +1,12 @@
 // css
 import styles from './RestaurantList.module.css'
 
-const RestaurantList = () => {
+const RestaurantList = (props) => {
     return(
-    <main className={styles.container}>
-      RestaurantList
+      <main className={styles.container}>
+        {props.restaurants.map(restaurant => 
+          {return restaurant.name}
+        )}
     </main>
   )
   }
