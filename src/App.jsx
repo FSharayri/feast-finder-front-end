@@ -72,8 +72,11 @@ function App() {
             </ProtectedRoute>
           }
         />
-      </Routes>
-      <RestaurantList/>
+        <Route
+          path="/restaurants"
+          element={<RestaurantList/>}
+        />
+      </Routes> 
     </>
   )
 }
