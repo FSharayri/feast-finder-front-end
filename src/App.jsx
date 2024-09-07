@@ -48,6 +48,13 @@ function App() {
   const handleAuthEvt = () => {
     setUser(authService.getUser())
   }
+  
+  const handleDeleteRestaurant = async (restaurantId) => {
+    const deletedRestaurant = await restaurantService.delete(restaurantId)
+    setRestaurants(restaurants.filter(restaurant => restaurant._id !== deletedRestaurant._id))
+    navigate('/restaurants')
+  }
+
 
   return (
     <>
@@ -89,7 +96,9 @@ function App() {
         <Route
           path="/restaurants/:restaurantId"
           element={
-              <RestaurantDetails/> 
+            <RestaurantDetails 
+            user={user} 
+            handleDeleteRestaurant = {handleDeleteRestaurant}/> 
           }
         /> 
       </Routes>

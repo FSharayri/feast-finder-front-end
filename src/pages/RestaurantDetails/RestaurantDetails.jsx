@@ -8,7 +8,7 @@ import * as restaurantService from '../../services/restaurantService'
 // css
 import styles from './RestaurantDetails.module.css'
 
-const RestaurantDetails = () => {
+const RestaurantDetails = (props) => {
   const {restaurantId} = useParams()
   const [restaurant, setRestaurant] = useState(null)
 
@@ -35,6 +35,13 @@ const RestaurantDetails = () => {
       <section>
         <h1>Dishes list</h1>
       </section>
+      {restaurant.author._id === props.user.profile &&
+        <>
+          <button onClick={() => props.handleDeleteBlog(restaurantId)} >
+           <h1>Icon category='Trash' /</h1>
+          </button>
+        </>
+      }
     </main>
   )
 }
