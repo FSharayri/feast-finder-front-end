@@ -1,13 +1,16 @@
 // css
 import styles from './RestaurantList.module.css'
 
+// components
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
+
 const RestaurantList = (props) => {
     return(
       <main className={styles.container}>
         {props.restaurants.map(restaurant => 
-          {return restaurant.name}
+          <RestaurantCard restaurant={restaurant} key={restaurant._id} />
         )}
-    </main>
+      </main>
   )
   }
   
