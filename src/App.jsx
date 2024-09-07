@@ -1,32 +1,3 @@
-// npm modules
-import { useState, useEffect} from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-
-// pages
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
-import RestaurantList from './pages/RestaurantList/RestaurantList'
-import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
-
-//import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
-//import DishList from './pages/DishList/DishList'
-//import DishDetails from './pages/DishDetails/DishDetails'
-
-// components
-import NavBar from './components/NavBar/NavBar'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-
-// services
-import * as authService from './services/authService'
-import * as restaurantService from './services/restaurantService'
-//import * as dishService from './services/dishService'
-
-// styles
-import './App.css'
-
 function App() {
   const [user, setUser] = useState(authService.
   getUser())
@@ -51,9 +22,9 @@ function App() {
     setUser(authService.getUser())
   }
 
-  const handleAddRestaurant = async (restaurantFormData) => {
-    const newRestaurant = await restaurantService.create(restaurantFormData)
-    setRestaurants([newRestaurant, ...restaurants])
+  const handleDeleteRestaurant = async (restaurantId) => {
+    // const deletedBlog <-- The delete service function will go here shortly
+    setRestaurants(restaurants.filter(restaurant => restaurant._id !== deletedRestaurant._id))
     navigate('/restaurants')
   }
 
@@ -95,16 +66,12 @@ function App() {
           }
         />
         <Route
-          path="/auth/restaurants/new"
+          path="/restaurants/:restaurantId"
           element={
-            <ProtectedRoute user={user}>
-              <NewRestaurant handleAddRestaurant={handleAddRestaurant} />
-            </ProtectedRoute>
+              <RestaurantDetails user={user} handleDeleteRestaurant = {handleDeleteRestaurant}/> 
           }
-        />
-      </Routes> 
+        /> 
+      </Routes>
     </>
   )
 }
-
-export default App
