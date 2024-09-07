@@ -9,9 +9,9 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
-import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
-import DishList from './pages/DishList/DishList'
-import DishDetails from './pages/DishDetails/DishDetails'
+//import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
+//import DishList from './pages/DishList/DishList'
+//import DishDetails from './pages/DishDetails/DishDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -19,15 +19,17 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
-import * as restaurantService from './services/restaurantService'
-import * as dishService from './services/dishService'
+//import * as restaurantService from './services/restaurantService'
+//import * as dishService from './services/dishService'
 
 // styles
 import './App.css'
 
 function App() {
-  const [user, setUser] = useState(authService.getUser())
+  const [user, setUser] = useState(authService.
+  getUser())
   const navigate = useNavigate()
+  // const [restaurants, setRestaurants] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -43,6 +45,7 @@ function App() {
     <>
       <h1>HELLO!</h1>
       <NavBar user={user} handleLogout={handleLogout} />
+      
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -70,6 +73,7 @@ function App() {
           }
         />
       </Routes>
+      <RestaurantList/>
     </>
   )
 }
