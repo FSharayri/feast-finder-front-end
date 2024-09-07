@@ -1,5 +1,5 @@
 // services
-//import * as tokenService from './tokenService'
+import * as tokenService from './tokenService'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/restaurants`
 
@@ -21,8 +21,23 @@ async function show(restaurantId) {
   }
 }
 
+async function deleteRestaurant(restaurantId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${restaurantId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
+  deleteRestaurant as delete,
 }
 

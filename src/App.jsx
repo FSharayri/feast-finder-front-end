@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
+import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
 //import DishList from './pages/DishList/DishList'
 //import DishDetails from './pages/DishDetails/DishDetails'
 
@@ -54,7 +55,12 @@ function App() {
     setRestaurants(restaurants.filter(restaurant => restaurant._id !== deletedRestaurant._id))
     navigate('/restaurants')
   }
-
+  
+  const handleAddRestaurant = async (restaurantFormData) => {
+    const newRestaurant = await restaurantService.create(restaurantFormData)
+    setRestaurants([newRestaurant, ...restaurants])
+    navigate('/restaurants')
+  }
 
   return (
     <>
@@ -99,6 +105,14 @@ function App() {
             <RestaurantDetails 
             user={user} 
             handleDeleteRestaurant = {handleDeleteRestaurant}/> 
+          }
+        />
+        <Route 
+          path='/restaurants/new'
+          element={
+            <ProtectedRoute user={user} >
+              <NewRestaurant handleAddRestaurant={handleAddRestaurant} />
+            </ProtectedRoute>
           }
         /> 
       </Routes>

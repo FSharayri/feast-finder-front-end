@@ -35,13 +35,12 @@ const RestaurantDetails = (props) => {
       <section>
         <h1>Dishes list</h1>
       </section>
-      {restaurant.author._id === props.user.profile &&
-        <>
-          <button onClick={() => props.handleDeleteBlog(restaurantId)} >
-           <h1>Icon category='Trash' /</h1>
+      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
+        <>   
+          <button onClick={() => props.handleDeleteBlog(restaurantId)} >   
+           <h1>Add Delete Icon here</h1>
           </button>
         </>
-      }
     </main>
   )
 }
