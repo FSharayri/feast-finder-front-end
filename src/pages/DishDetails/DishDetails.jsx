@@ -37,7 +37,7 @@ const DishDetails = (props) => {
         <h1>{dish.cost}</h1>
         <p>dish.reviews</p>
         <> 
-          <NavLink to={`/dishes/${dishId}/edit`}>
+          <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
             <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
           </NavLink>  
           <button onClick={() => props.handleDeleteDish(dishId)}><i className="fas fa-trash" alt="Delete Trash Can"></i>

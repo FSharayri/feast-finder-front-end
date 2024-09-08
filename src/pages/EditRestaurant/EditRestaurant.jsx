@@ -1,17 +1,21 @@
 // npm modules
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useLocation } from "react-router-dom"
 
 //css
 import styles from './EditRestaurant.module.css'
 
 const EditRestaurant = (props) => {
+  const cuisines= [ "American", "Brazilian", "Caribbean", "Cajun and Creole", "Chinese", "Filipino", "French", "Greek", "Indian", "Italian", "Japanese", "Korean", "Lebanese", "Mediterranean", "Mexican", "Middle Eastern", "Peruvian", "Spanish", "Thai", "Vietnamese", "Other" ]
+  
   const { state } = useLocation()
-  // TODO: console.log(state) is null, so that in the following code, the formData.name,formData.dishes ......are all null
-  const [formData, setFormData] = useState(state) 
+  const [formData, setFormData] = useState(state)
+  const imgInputRef = useRef(null)
+
   const handleChange = (evt) => {
   setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleUpdateRestaurant(formData)
@@ -26,78 +30,41 @@ const EditRestaurant = (props) => {
           type="text"
           name="name"
           id="name-input"
-          // value={formData.name}
+          value={formData.name}
           placeholder="Name"
           onChange={handleChange}
         />
         {/* TODO:Need to add dishes data here */}
-        <label htmlFor="text-input">Dish</label>   
-        <textarea
-          required
-          type="text"
-          name="text"
-          id="text-input"
-          //value={formData.dishes}
-          placeholder="Text"
-          onChange={handleChange}
-        />
+        
         <label htmlFor="category-input">Cuisine</label>
         <select
           required
           name="Cuisine"
           id="Cuisine-input"
-          //value={formData.Cuisine}
+          value={formData.cuisine}
           onChange={handleChange}
         >
-          <option value="American">American</option>
-          <option value="Brazilian">Brazilian</option>
-          <option value="Caribbean">Caribbean</option>
-          <option value="Cajun and Creole">Cajun and Creole</option>
-          <option value="Chinese">Chinese</option>
-          <option value="Filipino">Filipino</option>
-          <option value="French">French</option>
-          <option value="Greek">Greek</option>
-          <option value="Indian">Indian</option>
-          <option value="Italian">Italian</option>
-          <option value="Japanese">Japanese</option>
-          <option value="Korean">Korean</option>
-          <option value="Lebanese">Lebanese</option>
-          <option value="Mediterranean">Mediterranean</option>
-          <option value="Mexican">Mexican</option>
-          <option value="Middle Eastern">Middle Eastern</option>
-          <option value="Peruvian">Peruvian</option>
-          <option value="Spanish">Spanish</option>
-          <option value="Thai">Thai</option>
-          <option value="Vietnamese">Vietnamese</option>
-          <option value="Other">Other</option>
+        {cuisines.map((cuisine,idx)=> <option key={idx} value={cuisine}>{cuisine}</option>)}  
         </select>
-        <label htmlFor="Owner-input">Owner</label>
+        
+        <label htmlFor="license"> License Number</label>
         <input
           required
-          type="text"
-          name="owner"
-          id="owner-input"
-          //value={formData.owner}
-          placeholder="Owner"
-          onChange={handleChange}
-        />
-        <label htmlFor="license-input">license</label>
-        <input
-          required
-          type="text"
+          type="number"
           name="license"
-          id="license-input"
-          //value={formData.license}
-          placeholder="License Number"
+          id="license"
+          value={formData.license}
           onChange={handleChange}
         />
-        <label htmlFor="photo-input">photo</label>
-        {/* {formData.photo} */}
+
+        <label htmlFor="licenseState">License State</label>
         <input
-          type="file"
-          name="photo"
-          id="photo-input"
-          placeholder="Upload your photo"
+          required
+          type="text"
+          name="licenseState"
+          id="licenseState"
+          placeholder="e.g: NY"
+          value={formData.licenseState}
           onChange={handleChange}
         />
         <label htmlFor="photo-input">zipcode</label>
@@ -109,6 +76,15 @@ const EditRestaurant = (props) => {
           placeholder="Zipcode"
           onChange={handleChange}
         />
+        <label htmlFor="photo-input">photo</label>
+        {formData.photo}
+        <input 
+            type="file" 
+            name="photo" 
+            // onChange={handleChangePhoto}
+            ref={imgInputRef}
+        />
+        
         <button type="submit">SUBMIT</button>
       </form>
     </main>
