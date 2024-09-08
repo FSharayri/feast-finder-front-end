@@ -12,7 +12,7 @@ const RestaurantCard = ({ restaurant }) => {
       {restaurant.image 
         ? <img
             style={{ width: '320px' }}
-            src={`https://www.dnd5eapi.co${monsterDetails.image}`}
+            src={'image goes here'}
             alt={`A (scary) ${restaurant.name}!`}
           />
         : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
