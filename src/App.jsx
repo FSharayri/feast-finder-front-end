@@ -1,6 +1,8 @@
 // npm modules
 import { useState, useEffect} from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 
 // pages
 import Signup from './pages/Signup/Signup'

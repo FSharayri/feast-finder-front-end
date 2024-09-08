@@ -37,8 +37,7 @@ const RestaurantDetails = (props) => {
       </section>
       {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
         <>   
-          <button onClick={() => props.handleDeleteRestaurant(restaurantId)} >   
-           <h1>Add Delete Icon here</h1>
+          <button onClick={() => props.handleDeleteRestaurant(restaurantId)} ><i className="fas fa-trash"></i>
           </button>
         </>
     </main>
