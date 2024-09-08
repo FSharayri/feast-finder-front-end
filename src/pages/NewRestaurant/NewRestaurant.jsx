@@ -62,7 +62,7 @@ const NewRestaurant = (props) => {
       <form onSubmit={handleSubmit}>
         <h1>Add Restaurant</h1>
 
-        <label htmlFor="name-input">Restaurant Name: </label>
+        <label htmlFor="name-input">Restaurant Name</label>
         <input
           required
           type="text"
@@ -72,7 +72,7 @@ const NewRestaurant = (props) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="cuisine">Cuisine: </label>
+        <label htmlFor="cuisine">Cuisine</label>
         <select
           required
           name="cuisine"
@@ -88,7 +88,7 @@ const NewRestaurant = (props) => {
           ))}
         </select>
 
-        <label htmlFor="license"> License Number: </label>
+        <label htmlFor="license"> License Number</label>
         <input
           required
           type="number"
@@ -98,7 +98,7 @@ const NewRestaurant = (props) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="licenseState">License State: </label>
+        <label htmlFor="licenseState">License State</label>
         <input
           required
           type="text"
@@ -109,7 +109,7 @@ const NewRestaurant = (props) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="zipcode"> Zipcode: </label>
+        <label htmlFor="zipcode"> Zipcode</label>
         <input
           required
           type="number"
@@ -121,9 +121,7 @@ const NewRestaurant = (props) => {
         <label htmlFor="photo">Upload Photo</label>
         <input type="file" name="photo" onChange={handleChangePhoto} />
         <div>
-          <button disabled={isFormInvalid() || false}>
-            Submit
-          </button>
+            <button disabled={isFormInvalid() || false}></button>
           <Link to="/">CANCEL</Link>
         </div>
       </form>
