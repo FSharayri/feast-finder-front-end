@@ -15,8 +15,8 @@ const NavBar = ({ user, handleLogout }) => {
         </ul>
       :
         <ul>
-          <li><NavLink to="/auth/login">Log In</NavLink></li>
-          <li><NavLink to="/auth/signup">Sign Up</NavLink></li> 
+          <li><NavLink to="/auth/login"><i class="fa-solid fa-right-to-bracket"></i> Log In</NavLink></li>
+          <li><NavLink to="/auth/signup"><i class="fa-solid fa-pen-to-square"></i> Sign Up</NavLink></li> 
         </ul>
       }
     </nav>
