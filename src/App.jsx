@@ -76,6 +76,12 @@ function App() {
     navigate('/restaurants')
   }
 
+  const handleUpdateRestaurant = async (restaurantFormData) => {
+    const updatedRestaurant = await restaurantService.update(restaurantFormData)
+    setRestaurants(restaurants.map((restaurant) => restaurant._id === updatedRestaurant._id ? updatedRestaurant : restaurant))
+    navigate('/restaurants')
+  }
+
   return (
     <>
       
@@ -133,7 +139,7 @@ function App() {
           path="/restaurants/:restaurantId/edit" 
           element={
             <ProtectedRoute user={user}>
-              <EditRestaurant />
+              <EditRestaurant handleUpdateRestaurant={handleUpdateRestaurant}/>
             </ProtectedRoute>
           } 
         />

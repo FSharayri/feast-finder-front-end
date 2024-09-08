@@ -34,8 +34,8 @@ const RestaurantDetails = (props) => {
       </article>
       {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
       <> 
-      <NavLink to={`/restaurants/${restaurantId}/edit`}>
-          <button><i class="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+        <NavLink to={`/restaurants/${restaurantId}/edit`}>
+          <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
         </NavLink>  
         <button onClick={() => props.handleDeleteRestaurant(restaurantId)}><i className="fas fa-trash" alt="Delete Trash Can"></i>
         </button>
