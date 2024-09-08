@@ -15,6 +15,7 @@ import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
 import EditRestaurant from './pages/EditRestaurant/EditRestaurant'
 import DishList from './pages/DishList/DishList'
+import DishDetails from './pages/DishDetails/DishDetails'
 
 //import DishDetails from './pages/DishDetails/DishDetails'
 
@@ -146,6 +147,12 @@ function App() {
         <Route
           path="/dishes"
           element={<DishList dishes={dishes} />}
+        />
+        <Route
+          path="/dishes/:dishId"
+          element={
+            <DishDetails user={user} />
+          }
         />
       </Routes>
     </>
