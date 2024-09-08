@@ -9,7 +9,7 @@ const NewRestaurant = (props) => {
     cuisine: '',
     license: '',
     licenseState: '',
-    logo: '',
+    photo: '',
     zipcode: '',
   })
 
@@ -22,7 +22,6 @@ const NewRestaurant = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(formData)
     props.handleAddRestaurant(formData)
   }
 
@@ -32,7 +31,7 @@ const NewRestaurant = (props) => {
 
   const handleChangePhoto = (evt) => {
     const file = evt.target.files[0]
-    setFormData({ ...formData, logo: file })
+    setFormData({ ...formData, photo: file })
   }
 
   const isFormInvalid = () => {
@@ -101,10 +100,8 @@ const NewRestaurant = (props) => {
           value={formData.zipcode}
           onChange={handleChange}
         />
-
         <label htmlFor="photo">Upload Photo</label>
         <input type="file" name="photo" onChange={handleChangePhoto} />
-
         <div>
           <button disabled={isFormInvalid() || false}>
             Submit
