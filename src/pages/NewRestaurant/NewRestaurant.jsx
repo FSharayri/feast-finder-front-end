@@ -49,7 +49,6 @@ const NewRestaurant = (props) => {
       imgInputRef.current.value = null
       return
     }
-
     setPhotoData({ photo: evt.target.files[0] })
   }
 
