@@ -51,10 +51,29 @@ async function deleteRestaurant(restaurantId) {
   }
 }
 
+async function addPhoto(photoData) {
+  try {
+    const photoFormData = new FormData()
+    photoFormData.append('photo', photoData)
+    const restaurantId = tokenService.getUserFromToken().restaurant
+    const res = await fetch(`${BASE_URL}/${restaurantId}/add-photo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: photoFormData,
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 export {
   index,
   show,
   create,
   deleteRestaurant as delete,
+  addPhoto
 }
 
