@@ -29,9 +29,28 @@ const NewRestaurant = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleChangePhoto = (evt) => {
+  const handleChangePhoto = evt => {
     const file = evt.target.files[0]
-    setFormData({ ...formData, photo: file })
+    let isFileInvalid = false
+    let errMsg = ""
+    const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
+    const photoFormat = file.name.split('.').at(-1)
+
+    // cloudinary supports files up to 10.4MB each as of May 2023
+    if (file.size >= 10485760) {
+      errMsg = "Image must be smaller than 10.4MB"
+      isFileInvalid = true
+    }
+    if (!validFormats.includes(photoFormat)) {
+      errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
+      isFileInvalid = true
+    }    
+    if (isFileInvalid) {
+      imgInputRef.current.value = null
+      return
+    }
+
+    setPhotoData({ photo: evt.target.files[0] })
   }
 
   const isFormInvalid = () => {
