@@ -32,14 +32,17 @@ const RestaurantDetails = (props) => {
         <h3>{restaurant.zipcode}</h3>
         </header>
       </article>
+      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
+      <> 
+      <NavLink to={`/restaurants/${restaurantId}/edit`}>
+          <button><i class="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+        </NavLink>  
+        <button onClick={() => props.handleDeleteRestaurant(restaurantId)}><i className="fas fa-trash" alt="Delete Trash Can"></i>
+        </button>
+      </>
       <section>
         <h1>Dishes list</h1>
       </section>
-      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
-        <>   
-          <button onClick={() => props.handleDeleteRestaurant(restaurantId)} ><i className="fas fa-trash"></i>
-          </button>
-        </>
     </main>
   )
 }

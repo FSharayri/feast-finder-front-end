@@ -130,7 +130,7 @@ function App() {
           }
         /> 
         <Route 
-          path="/restaurants/edit" 
+          path="/restaurants/:restaurantId/edit" 
           element={
             <ProtectedRoute user={user}>
               <EditRestaurant />
