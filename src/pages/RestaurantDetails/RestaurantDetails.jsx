@@ -1,7 +1,7 @@
 // npm modules
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-
+// npm imports
+import { useParams, NavLink } from "react-router-dom"
 // services
 import * as restaurantService from '../../services/restaurantService'
 
@@ -26,21 +26,23 @@ const RestaurantDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
-        <h1>{restaurant.logo}</h1>
+        <h1>{restaurant.photo}</h1>
         <h1>{restaurant.name}</h1>
         <h3>{restaurant.cuisine}</h3>
         <h3>{restaurant.zipcode}</h3>
         </header>
       </article>
+      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
+      <> 
+      <NavLink to={`/restaurants/${restaurantId}/edit`}>
+          <button><i class="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+        </NavLink>  
+        <button onClick={() => props.handleDeleteRestaurant(restaurantId)}><i className="fas fa-trash" alt="Delete Trash Can"></i>
+        </button>
+      </>
       <section>
         <h1>Dishes list</h1>
       </section>
-      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
-        <>   
-          <button onClick={() => props.handleDeleteBlog(restaurantId)} >   
-           <h1>Add Delete Icon here</h1>
-          </button>
-        </>
     </main>
   )
 }

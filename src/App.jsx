@@ -1,6 +1,8 @@
 // npm modules
 import { useState, useEffect} from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -11,7 +13,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
-
+import EditRestaurant from './pages/EditRestaurant/EditRestaurant'
 import DishList from './pages/DishList/DishList'
 
 //import DishDetails from './pages/DishDetails/DishDetails'
@@ -120,13 +122,21 @@ function App() {
           }
         />
         <Route 
-          path='/restaurants/new'
+          path="/restaurants/new"
           element={
             <ProtectedRoute user={user} >
               <NewRestaurant handleAddRestaurant={handleAddRestaurant} />
             </ProtectedRoute>
           }
         /> 
+        <Route 
+          path="/restaurants/:restaurantId/edit" 
+          element={
+            <ProtectedRoute user={user}>
+              <EditRestaurant />
+            </ProtectedRoute>
+          } 
+        />
         <Route
           path="/dishes"
           element={<DishList dishes={dishes} />}
