@@ -11,33 +11,43 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
-//import DishList from './pages/DishList/DishList'
+import DishList from './pages/DishList/DishList'
 //import DishDetails from './pages/DishDetails/DishDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
+import ExploreBar from './components/ExploreBar/ExploreBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
 import * as restaurantService from './services/restaurantService'
-//import * as dishService from './services/dishService'
+import * as dishService from './services/dishService'
 
 // styles
 import './App.css'
+
 
 function App() {
   const [user, setUser] = useState(authService.
   getUser())
   const navigate = useNavigate()
   const [restaurants, setRestaurants] = useState([])
+  const [dishes, setDishes] = useState([])
 
   useEffect(() => {
+    //restaurant fetch
     const fetchAllRestrants = async () => {
       const restaurantsData = await restaurantService.index()
       setRestaurants(restaurantsData) 
     }
-    fetchAllRestrants() 
+    fetchAllRestrants()
+    //dish fetch
+    const fetchAllDishes = async () => {
+      const dishesData = await dishService.index()
+      setDishes(dishesData)
+    }
+    fetchAllDishes()
   }, [ ])
 
   const handleLogout = () => {
@@ -64,9 +74,9 @@ function App() {
 
   return (
     <>
-      <h1>HELLO!</h1>
-      <NavBar user={user} handleLogout={handleLogout} />
       
+      <NavBar user={user} handleLogout={handleLogout} />
+      <ExploreBar />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -115,6 +125,10 @@ function App() {
             </ProtectedRoute>
           }
         /> 
+        <Route
+          path="/dishes"
+          element={<DishList dishes={dishes} />}
+        />
       </Routes>
     </>
   )
