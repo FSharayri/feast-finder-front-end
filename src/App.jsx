@@ -11,7 +11,9 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import RestaurantList from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
+
 import DishList from './pages/DishList/DishList'
+
 //import DishDetails from './pages/DishDetails/DishDetails'
 
 // components
