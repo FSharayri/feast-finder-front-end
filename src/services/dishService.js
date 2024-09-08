@@ -50,12 +50,27 @@ async function create(dishFormData) {
   }
 }
 
+async function update(dishFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${dishFormData._id}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dishFormData),
+    })
+    const json = await res.json()
+    if (json.err) throw new Error(json.err)
+    if (json.token) tokenService.setToken(json.token) 
+  }catch (err) {
+    throw new Error(err)
+  }
+}
+
 
 export {
   index,
   show,
   deleteDish as delete,
   create,
-  
+  update,
 }
 
