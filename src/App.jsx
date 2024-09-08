@@ -16,7 +16,7 @@ import NewRestaurant from './pages/NewRestaurant/NewRestaurant'
 import EditRestaurant from './pages/EditRestaurant/EditRestaurant'
 import DishList from './pages/DishList/DishList'
 import DishDetails from './pages/DishDetails/DishDetails'
-import EditDish from './pages/EditRestaurant/EditRestaurant'
+import EditDish from './pages/EditDish/EditDish'
 
 //import DishDetails from './pages/DishDetails/DishDetails'
 
@@ -87,7 +87,7 @@ function App() {
   const handleUpdateDish = async (dishFormData) => {
     const updatedDish = await dishService.update(dishFormData)
     setDishes(dishes.map((dish) => dish._id === updatedDish._id ? updatedDish : dish))
-    navigate('/restaurants')
+    navigate('/dishes')
   }
 
   return (

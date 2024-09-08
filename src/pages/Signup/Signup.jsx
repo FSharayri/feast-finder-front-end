@@ -50,7 +50,6 @@ const Signup = ({ handleAuthEvt }) => {
       imgInputRef.current.value = null
       return
     }
-
     setPhotoData({ photo: evt.target.files[0] })
   }
 

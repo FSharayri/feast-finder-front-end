@@ -3,11 +3,11 @@ import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
 //css
-import styles from './EditRestaurant.module.css'
+import styles from './EditDish.module.css'
 
 const EditDish = (props) => {
   const { state } = useLocation()
-  // TODO: console.log(state) is null, so that in the following code, the formData.name,formData.dishes ......are all null
+  console.log(state)
   const [formData, setFormData] = useState(state) 
   const handleChange = (evt) => {
   setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -27,7 +27,7 @@ const EditDish = (props) => {
           type="text"
           name="name"
           id="name-input"
-          // value={formData.name}
+          value={formData.name}
           placeholder="Name"
           onChange={handleChange}
         />
@@ -37,18 +37,18 @@ const EditDish = (props) => {
           type="text"
           name="restaurant"
           id="restaurant-input"
-          //value={formData.restaurant}
+          value={formData?.restaurant}
           placeholder="Text"
           onChange={handleChange}
         />
         <label htmlFor="text-input">Cost</label>   
-        <textarea
+        <input
           required
-          type="number"
+          type="Number"
           name="cost"
           id="cost-input"
-          //value={formData.restaurant}
-          placeholder="Text"
+          value={formData.cost}
+          placeholder="0"
           onChange={handleChange}
         />
         <label htmlFor="category-input">Reviews</label>
