@@ -21,6 +21,22 @@ async function show(restaurantId) {
   }
 }
 
+async function create(restaurantFormData) {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(restaurantFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function deleteRestaurant(restaurantId) {
   try {
     const res = await fetch(`${BASE_URL}/${restaurantId}`, {
@@ -38,6 +54,7 @@ async function deleteRestaurant(restaurantId) {
 export {
   index,
   show,
+  create,
   deleteRestaurant as delete,
 }
 
