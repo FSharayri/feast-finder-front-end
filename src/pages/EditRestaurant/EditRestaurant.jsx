@@ -67,7 +67,7 @@ const EditRestaurant = (props) => {
           value={formData.licenseState}
           onChange={handleChange}
         />
-        <label htmlFor="photo-input">zipcode</label>
+        <label htmlFor="photo-input">Zipcode</label>
         <input
           type="number"
           name="zipcode"
@@ -76,7 +76,7 @@ const EditRestaurant = (props) => {
           placeholder="Zipcode"
           onChange={handleChange}
         />
-        <label htmlFor="photo-input">photo</label>
+        <label htmlFor="photo-input">Photo</label>
         {formData.photo}
         <input 
             type="file" 
