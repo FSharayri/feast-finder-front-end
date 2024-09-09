@@ -9,7 +9,6 @@ import * as restaurantService from '../../services/restaurantService'
 import styles from './RestaurantDetails.module.css'
 
 const RestaurantDetails = (props) => {
-  let controls = false
   const {restaurantId} = useParams()
   const [restaurant, setRestaurant] = useState(null)
   
