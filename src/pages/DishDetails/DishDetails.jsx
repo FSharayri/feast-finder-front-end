@@ -11,15 +11,14 @@ import styles from './DishDetails.module.css'
 //components
 import NewReview from "../../components/NewReview/NewReview"
 import Reviews from "../../components/Reviews/Reviews"
-import ReviewCard from "../../components/ReviewCard/ReviewCard"
+// import ReviewCard from "../../components/ReviewCard/ReviewCard"
 
 const DishDetails = (props) => {
   const { dishId } = useParams()
   const [dish, setDish] = useState(null)
-  // const [reviews,setReviews]= useState(null)
   const handleAddReview = async (reviewFormData) => {
     const newReview = await dishService.createReview(dishId,reviewFormData)
-    setDish({ ...dish, reviews: [newReview,...dish.reviews] })
+    setDish({ ...dish, reviews: [newReview,...dish.reviews]})
   }
   useEffect(() => {
       const fetchDish = async () => {
@@ -28,7 +27,6 @@ const DishDetails = (props) => {
       }
       fetchDish()
     }, [dishId])
-  console.log(dish)
 
   if(!dish) return <p>Loading...</p>
 
@@ -51,10 +49,10 @@ const DishDetails = (props) => {
       </button>
     </article>
     <section>
-      <h5>{dish?.reviews?.length} reviews</h5>
+      <h5>{dish.reviews.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
-      {/* <Reviews reviews={reviews} user={props.user}/> */}
-      {dish.reviews?.map((review,idx)=><ReviewCard key={idx} review={review} user={props.user}/>)}
+      <Reviews reviews={dish.reviews} user={props.user}/>
+      {/* {dish.reviews?.map((review,idx)=><ReviewCard key={idx} review={review} user={props.user}/>)} */}
     </section>
   </main>
   )
