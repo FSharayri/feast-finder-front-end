@@ -10,14 +10,16 @@ import styles from './DishDetails.module.css'
 
 //components
 import NewReview from "../../components/NewReview/NewReview"
+import Reviews from "../../components/Reviews/Reviews"
+import ReviewCard from "../../components/ReviewCard/ReviewCard"
 
 const DishDetails = (props) => {
   const { dishId } = useParams()
   const [dish, setDish] = useState(null)
+  // const [reviews,setReviews]= useState(null)
   const handleAddReview = async (reviewFormData) => {
-    // const newComment <-- We'll need a service function here
     const newReview = await dishService.createReview(dishId,reviewFormData)
-    setDish({ ...dish, reviews: [...dish.reviews, newReview] })
+    setDish({ ...dish, reviews: [newReview,...dish.reviews] })
   }
   useEffect(() => {
       const fetchDish = async () => {
@@ -49,7 +51,10 @@ const DishDetails = (props) => {
       </button>
     </article>
     <section>
+      <h5>{dish?.reviews?.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
+      {/* <Reviews reviews={reviews} user={props.user}/> */}
+      {dish.reviews?.map((review,idx)=><ReviewCard key={idx} review={review} user={props.user}/>)}
     </section>
   </main>
   )
