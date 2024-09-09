@@ -28,6 +28,15 @@ const DishDetails = (props) => {
       fetchDish()
     }, [dishId])
 
+  const handleDeleteReview= async (reviewId)=>{
+
+    const deletedReview = await dishService.deleteReview(dishId,reviewId)
+    console.log('AAAAAAAA')
+    console.log(dish.reviews)
+    console.log(deletedReview)
+    setDish({...dish, reviews: [...dish.reviews.filter(review => review._id !== reviewId)]})
+  }
+
   if(!dish) return <p>Loading...</p>
 
   return (
@@ -51,8 +60,7 @@ const DishDetails = (props) => {
     <section>
       <h5>{dish.reviews.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
-      <Reviews reviews={dish.reviews} user={props.user}/>
-      {/* {dish.reviews?.map((review,idx)=><ReviewCard key={idx} review={review} user={props.user}/>)} */}
+      <Reviews reviews={dish.reviews} user={props.user} handleDeleteReview={handleDeleteReview}/>
     </section>
   </main>
   )
