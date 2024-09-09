@@ -16,6 +16,7 @@ const DishDetails = (props) => {
   const [dish, setDish] = useState(null)
   const handleAddReview = async (reviewFormData) => {
     // const newComment <-- We'll need a service function here
+    const newReview = await dishService.createReview(dishId,reviewFormData)
     setDish({ ...dish, reviews: [...dish.reviews, newReview] })
   }
   useEffect(() => {
@@ -35,7 +36,7 @@ const DishDetails = (props) => {
       <header>
         <h1>{dish.name}</h1>
         {dish.photo ? 
-          <img src={dish.photo} alt="The user's avatar" />
+          <img src={dish.photo} alt="Dish Image" />
           : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
         }
       </header>
