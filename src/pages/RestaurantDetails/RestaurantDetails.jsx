@@ -11,7 +11,7 @@ import styles from './RestaurantDetails.module.css'
 const RestaurantDetails = (props) => {
   const {restaurantId} = useParams()
   const [restaurant, setRestaurant] = useState(null)
-
+  
   useEffect(() => {
     const fetchRestaurant = async () => {
       const restaurantData = await restaurantService.show(restaurantId)
@@ -19,6 +19,8 @@ const RestaurantDetails = (props) => {
     }
     fetchRestaurant()
   }, [restaurantId])
+  
+  // if (props.user.profile===restaurant.owner._id) controls=true
   
   if(!restaurant) return <p>Loading...</p>
   
@@ -32,15 +34,17 @@ const RestaurantDetails = (props) => {
           <h3>{restaurant.cuisine}</h3>
           <h3>{restaurant.zipcode}</h3>
         </header>
+        {restaurant.owner._id === props.user.profile &&
+          <> 
+            <NavLink to={`/restaurants/${restaurantId}/edit`} state={restaurant}>
+              <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+            </NavLink>  
+            <button onClick={() => props.handleDeleteRestaurant(restaurantId)}>
+              <i className="fas fa-trash" alt="Delete Trash Can"/>
+            </button>
+          </>
+        }
       </article>
-      {/* TODO: Add validation information so that only the restaurant's owner can delete restaurant */}
-      <> 
-        <NavLink to={`/restaurants/${restaurantId}/edit`} state={restaurant}>
-          <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
-        </NavLink>  
-        <button onClick={() => props.handleDeleteRestaurant(restaurantId)}><i className="fas fa-trash" alt="Delete Trash Can"></i>
-        </button>
-      </>
       <section>
         <h1>Dishes list</h1>
       </section>
