@@ -13,7 +13,7 @@ import forkIcon from '../../assets/icons/fork.svg'
 const ReviewCard = ({ review, user, handleDeleteReview }) => {
   let controls = false
   
-  if (user.profile === review.owner._id) controls = true;
+  if (user.profile === review.owner._id) controls = true
 
   return (
     <article className={styles.container}>
@@ -21,7 +21,7 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
         <OwnerInfo content={review} />
       </header>
 
-      {/* Fork rating system */}
+      {/* test comment - from Ito - our rating system */}
       <div className={styles.rating}>
         {Array(review.rating).fill().map((_, index) => (
           <img
@@ -53,4 +53,4 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
   );
 };
 
-export default ReviewCard;
+export default ReviewCard
