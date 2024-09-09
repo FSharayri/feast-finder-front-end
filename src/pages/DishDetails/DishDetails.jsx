@@ -14,7 +14,7 @@ import Reviews from "../../components/Reviews/Reviews"
 // import ReviewCard from "../../components/ReviewCard/ReviewCard"
 
 const DishDetails = (props) => {
-  let controls = false
+
   
   const { dishId } = useParams()
   const [dish, setDish] = useState(null)
@@ -29,10 +29,10 @@ const DishDetails = (props) => {
       }
       fetchDish()
     }, [dishId])
-  console.log(props.user.profile,dish?.owner._id)
-  if (props.user.profile===dish?.owner._id) controls=true
-  const handleDeleteReview= async (reviewId)=>{
 
+
+
+  const handleDeleteReview= async (reviewId)=>{
     const deletedReview = await dishService.deleteReview(dishId,reviewId)
     console.log('AAAAAAAA')
     console.log(dish.reviews)
@@ -54,15 +54,13 @@ const DishDetails = (props) => {
       </header>
       <h2>{dish.restaurant}</h2>
       <h2>{dish.cost}</h2>
-      {controls?
-      <>
-        <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
-          <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
-        </NavLink>  
-        <button onClick={() => props.handleDeleteDish(dishId)}><i className="fas fa-trash" alt="Delete Trash Can"></i></button>
-      </>
-      :
-      ''
+      {props.user.profile===dish.owner._id &&
+        <>
+          <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
+            <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+          </NavLink>  
+          <button onClick={() => props.handleDeleteDish(dishId)}><i className="fas fa-trash" alt="Delete Trash Can"></i></button>
+        </>
       }
       </article>
     <section>
