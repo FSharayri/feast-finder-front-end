@@ -10,13 +10,15 @@ import styles from './DishDetails.module.css'
 
 //components
 import NewReview from "../../components/NewReview/NewReview"
+import Reviews from "../../components/Reviews/Reviews"
+// import ReviewCard from "../../components/ReviewCard/ReviewCard"
 
 const DishDetails = (props) => {
   const { dishId } = useParams()
   const [dish, setDish] = useState(null)
   const handleAddReview = async (reviewFormData) => {
-    // const newComment <-- We'll need a service function here
-    setDish({ ...dish, reviews: [...dish.reviews, newReview] })
+    const newReview = await dishService.createReview(dishId,reviewFormData)
+    setDish({ ...dish, reviews: [newReview,...dish.reviews]})
   }
   useEffect(() => {
       const fetchDish = async () => {
@@ -25,7 +27,6 @@ const DishDetails = (props) => {
       }
       fetchDish()
     }, [dishId])
-  console.log(dish)
 
   if(!dish) return <p>Loading...</p>
 
@@ -35,7 +36,7 @@ const DishDetails = (props) => {
       <header>
         <h1>{dish.name}</h1>
         {dish.photo ? 
-          <img src={dish.photo} alt="The user's avatar" />
+          <img src={dish.photo} alt="Dish Image" />
           : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
         }
       </header>
@@ -48,7 +49,10 @@ const DishDetails = (props) => {
       </button>
     </article>
     <section>
+      <h5>{dish.reviews.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
+      <Reviews reviews={dish.reviews} user={props.user}/>
+      {/* {dish.reviews?.map((review,idx)=><ReviewCard key={idx} review={review} user={props.user}/>)} */}
     </section>
   </main>
   )
