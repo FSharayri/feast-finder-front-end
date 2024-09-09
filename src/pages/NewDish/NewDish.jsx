@@ -30,24 +30,21 @@ const NewDish = (props) => {
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>Add Dish</h1>
-        <label htmlFor="licenseState">Restaurant</label>
-        <input
-          required
-          type="text"
-          name="restaurant"
-          id="restaurant-input"
-          value={formData.restaurant}
-          onChange={handleChange}
-        />
-        <label htmlFor="name-input">Dish Owner</label>
-        <input
-          required
-          type="text"
-          name="owner"
-          id="owner-input"
-          value={formData.owner}
-          onChange={handleChange}
-        />
+        {/* TODO: The default value of restaurant is not "Select Restaurant" */}
+        <label htmlFor="Restaurant-input">Restaurant</label>
+        <select
+         required
+         name="restaurant"
+         id="restaurant-input"
+         value="{formData.restaurant.name}"
+         onChange={handleChange}
+       >
+       <option value="" disabled>Select Restaurant</option>
+       {props.restaurants.map((restaurant,idx)=> (
+           <option key={idx} value={restaurant}>
+               {restaurant.name}
+           </option>))} 
+       </select>
         <label htmlFor="name-input">Dish Name</label>
         <input
           required
@@ -57,7 +54,6 @@ const NewDish = (props) => {
           value={formData.name}
           onChange={handleChange}
         />
-        
         <label htmlFor="license"> Cost</label>
         <input
           required

@@ -186,7 +186,7 @@ function App() {
           path="/dishes/new"
           element={
             <ProtectedRoute user={user} >
-              <NewDish handleAddDish={handleAddDish} />
+              <NewDish handleAddDish={handleAddDish} restaurants = {restaurants} />
             </ProtectedRoute>
           }
         />
