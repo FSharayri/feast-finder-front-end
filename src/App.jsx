@@ -49,13 +49,14 @@ function App() {
       setRestaurants(restaurantsData) 
     }
     fetchAllRestrants()
-    //dish fetch
+    // dish fetch
     const fetchAllDishes = async () => {
       const dishesData = await dishService.index()
+      console.log(dishesData)
       setDishes(dishesData)
     }
     fetchAllDishes()
-  }, [ ])
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -99,7 +100,7 @@ function App() {
   
   const handleAddDish = async (dishFormData) => {
     const newDish = await dishService.create(dishFormData)
-    setRestaurants([newDish, ...dishes])
+    setDishes([newDish, ...dishes])
     navigate('/dishes')
   }
 
@@ -186,7 +187,7 @@ function App() {
           path="/dishes/new"
           element={
             <ProtectedRoute user={user} >
-              <NewDish handleAddDish={handleAddDish} restaurants = {restaurants} />
+              <NewDish handleAddDish={handleAddDish} restaurants={restaurants} />
             </ProtectedRoute>
           }
         />

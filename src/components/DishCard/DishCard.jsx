@@ -18,7 +18,7 @@ const DishCard = ({ dish }) => {
           }
           <span>
             <h1>{dish.name}</h1>
-            <h2>{dish.restaurant}</h2>
+            <h2>{dish.restaurant?.name}</h2>
             <h3>{dish.cost} $</h3>
           </span>
         </header>

@@ -34,9 +34,6 @@ const DishDetails = (props) => {
 
   const handleDeleteReview= async (reviewId)=>{
     const deletedReview = await dishService.deleteReview(dishId,reviewId)
-    console.log('AAAAAAAA')
-    console.log(dish.reviews)
-    console.log(deletedReview)
     setDish({...dish, reviews: [...dish.reviews.filter(review => review._id !== reviewId)]})
   }
 
