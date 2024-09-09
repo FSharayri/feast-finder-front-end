@@ -21,14 +21,13 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
         <OwnerInfo content={review} />
       </header>
 
-      {/* test comment - from Ito */}
       <div className={styles.rating}>
-        {Array(review.rating).fill().map((_, index) => (
+        {Array(5).fill().map((_, index) => (
           <img
             key={index}
             src={forkIcon}
             alt="Fork Icon"
-            className={styles.forkIcon} 
+            className={index < review.rating ? styles.forkGold : styles.forkGray}
           />
         ))}
       </div>
