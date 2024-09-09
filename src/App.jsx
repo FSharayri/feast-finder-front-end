@@ -17,6 +17,7 @@ import EditRestaurant from './pages/EditRestaurant/EditRestaurant'
 import DishList from './pages/DishList/DishList'
 import DishDetails from './pages/DishDetails/DishDetails'
 import EditDish from './pages/EditDish/EditDish'
+import NewDish from './pages/NewDish/NewDish'
 
 //import DishDetails from './pages/DishDetails/DishDetails'
 
@@ -87,6 +88,18 @@ function App() {
   const handleUpdateDish = async (dishFormData) => {
     const updatedDish = await dishService.update(dishFormData)
     setDishes(dishes.map((dish) => dish._id === updatedDish._id ? updatedDish : dish))
+    navigate('/dishes')
+  }
+
+  const handleDeleteDish = async (dishId) => {
+    const deletedDish = await dishService.delete(dishId)
+    setDishes(dishes.filter(dish => dish._id !== deletedDish._id))
+    navigate('/dishes')
+  }
+  
+  const handleAddDish = async (dishFormData) => {
+    const newDish = await dishService.create(dishFormData)
+    setRestaurants([newDish, ...dishes])
     navigate('/dishes')
   }
 
@@ -168,6 +181,14 @@ function App() {
               <EditDish handleUpdateDish={handleUpdateDish}/>
             </ProtectedRoute>
           } 
+        />
+        <Route 
+          path="/dishes/new"
+          element={
+            <ProtectedRoute user={user} >
+              <NewDish handleAddDish={handleAddDish} />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </>
