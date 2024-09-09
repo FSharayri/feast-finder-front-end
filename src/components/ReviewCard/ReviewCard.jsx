@@ -20,7 +20,7 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
       <header>
         <OwnerInfo content={review} />
       </header>
-
+{/* test comment */}
       <div className={styles.rating}>
         {Array(5).fill().map((_, index) => (
           <img
