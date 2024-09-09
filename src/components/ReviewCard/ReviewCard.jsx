@@ -35,4 +35,4 @@ const ReviewCard = ({review,user,handleDeleteReview}) => {
   )
 }
 
-export default ReviewCard
+export default ReviewCard 
