@@ -29,6 +29,7 @@ const ReviewCard = ({review,user}) => {
       </header>
       {`🥄`.repeat(review.rating)}
       <h2>{review.comment}</h2>
+
     </article>
   )
 }
