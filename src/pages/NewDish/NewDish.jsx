@@ -8,7 +8,7 @@ const NewDish = (props) => {
     owner: '',
     name: '',
     photo: '',
-    restaurant: '',
+    restaurant: "",
     cost: ''
   })
 
@@ -30,16 +30,15 @@ const NewDish = (props) => {
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>Add Dish</h1>
-        {/* TODO: The default value of restaurant is not "Select Restaurant" */}
         <label htmlFor="Restaurant-input">Restaurant</label>
         <select
          required
          name="restaurant"
          id="restaurant-input"
-         value="{formData.restaurant.name}"
+         value={formData.restaurant.name}
          onChange={handleChange}
        >
-       <option value="" disabled>Select Restaurant</option>
+       <option value="" disabled selected>Select Restaurant</option>
        {props.restaurants.map((restaurant,idx)=> (
            <option key={idx} value={restaurant}>
                {restaurant.name}
