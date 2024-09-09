@@ -21,7 +21,7 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
         <OwnerInfo content={review} />
       </header>
 
-      {/* test comment - from Ito - our rating system */}
+      {/* test comment - from Ito */}
       <div className={styles.rating}>
         {Array(review.rating).fill().map((_, index) => (
           <img
