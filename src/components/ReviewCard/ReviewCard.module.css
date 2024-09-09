@@ -1,0 +1,67 @@
+
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .forkGold {
+    width: 20px; /* Adjust the width to your needs */
+    height: 20px; /* Adjust the height accordingly */
+    margin-right: 4px;
+    filter: invert(49%) sepia(96%) saturate(1000%) hue-rotate(1deg) brightness(106%) contrast(107%);
+    /* This filter creates a gold effect */
+  }
+  
+  .forkGray {
+    width: 20px; /* Keep the same size for consistency */
+    height: 20px;
+    margin-right: 4px;
+    filter: grayscale(100%);
+  }
+  
+  .container {
+    background-color: #fff; /* White background for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    padding: 16px; /* Padding inside the card */
+    margin-top: 16px; /* Spacing between the dish card and the review card */
+    width: 100%; /* Full width within the parent container */
+    max-width: 600px; /* Max width for larger screens */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  h2 {
+    font-size: 1.1rem; /* Slightly larger than default size for emphasis */
+    margin: 12px 0 0; /* Spacing above and below the comment */
+    color: #333; /* Dark text for contrast */
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Spacing between the rating and the review comment */
+  }
+  
+  button {
+    background-color: transparent; /* Transparent background for buttons */
+    border: none;
+    cursor: pointer;
+    color: #007bff; /* Blue color for edit/delete buttons */
+    margin-right: 8px;
+  }
+  
+  button:hover {
+    color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* Optional: media query for responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 100%;
+      margin: 8px 0; /* Smaller margin for mobile */
+    }
+  
+    h2 {
+      font-size: 1rem; /* Adjust font size for mobile */
+    }
+  }
