@@ -10,8 +10,8 @@ import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 const RestaurantList = (props) => {
     return(
       <>
-        <NavLink to="/restaurants/new">Add Restaurant</NavLink>
         <main className={styles.container}>
+        <NavLink to="/restaurants/new">Add Restaurant</NavLink>
           {props.restaurants.map(restaurant => 
             <RestaurantCard restaurant={restaurant} key={restaurant._id} />
           )}
