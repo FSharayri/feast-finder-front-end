@@ -30,8 +30,6 @@ const DishDetails = (props) => {
       fetchDish()
     }, [dishId])
 
-
-
   const handleDeleteReview= async (reviewId)=>{
     const updatedDish = await dishService.deleteReview(dishId,reviewId)
     setDish(updatedDish)

@@ -38,6 +38,7 @@ import './App.css'
 function App() {
   const [user, setUser] = useState(authService.
   getUser())
+  const [profile, setProfile] = useState([])
   const navigate = useNavigate()
   const [restaurants, setRestaurants] = useState([])
   const [dishes, setDishes] = useState([])
@@ -121,7 +122,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
-          path="/profiles"
+          path="/profile"
           element={
             <ProtectedRoute user={user}>
               <Profiles />
@@ -176,7 +177,8 @@ function App() {
         />
         <Route
           path="/dishes"
-          element={<DishList dishes={dishes} />}
+          element={<DishList dishes={dishes} profile={profile} />
+        }
         />
         <Route
           path="/dishes/:dishId"
