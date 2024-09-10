@@ -14,6 +14,7 @@ const EditDish = (props) => {
   }
   const handleSubmit = (evt) => {
     evt.preventDefault()
+    console.log(formData)
     props.handleUpdateDish(formData)
   }
 
