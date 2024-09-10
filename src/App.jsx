@@ -100,7 +100,15 @@ function App() {
   
   const handleAddDish = async (dishFormData) => {
     const newDish = await dishService.create(dishFormData)
-    
+    //updates the restaurant this dish was added to 
+    const restaurantId = dishFormData.restaurant
+    const restaurantDishes = dishes.filter(dish=>dish.restaurant===restaurantId)
+    const restaurantFormData = {
+      _id : restaurantId,
+      dishes: restaurantDishes
+    }
+    handleUpdateRestaurant(restaurantFormData)
+
     setDishes([newDish, ...dishes])
     navigate('/dishes')
   }
@@ -188,7 +196,7 @@ function App() {
           path="/dishes/new"
           element={
             <ProtectedRoute user={user} >
-              <NewDish handleAddDish={handleAddDish} restaurants={restaurants} />
+              <NewDish handleAddDish={handleAddDish} restaurants={restaurants} user={user}/>
             </ProtectedRoute>
           }
         />

@@ -26,6 +26,7 @@ const NewDish = (props) => {
     return false
   }
 
+  const ownerRestaurants= props.restaurants.filter(rest=> rest.owner._id ===props.user.profile)
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
@@ -40,7 +41,7 @@ const NewDish = (props) => {
           defaultValue='select'
         >
           <option value='select' disabled >Select Restaurant</option>
-          {props.restaurants.map((restaurant,idx)=> (
+          {ownerRestaurants.map((restaurant,idx)=> (
               <option key={idx} value={restaurant._id}>
                   {restaurant.name}
               </option>))} 

@@ -1,12 +1,15 @@
 // npm modules
 import { useState, useEffect } from "react"
-// npm imports
 import { useParams, NavLink } from "react-router-dom"
 // services
 import * as restaurantService from '../../services/restaurantService'
 
 // css
 import styles from './RestaurantDetails.module.css'
+
+//pages
+import DishList from "../DishList/DishList"
+
 
 const RestaurantDetails = (props) => {
   const {restaurantId} = useParams()
@@ -46,7 +49,7 @@ const RestaurantDetails = (props) => {
         }
       </article>
       <section>
-        <h1>Dishes list</h1>
+        <DishList dishes={restaurant.dishes}/>
       </section>
     </main>
   )
