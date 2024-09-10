@@ -34,7 +34,7 @@ const DishDetails = (props) => {
 
   const handleDeleteReview= async (reviewId)=>{
     const deletedReview = await dishService.deleteReview(dishId,reviewId)
-    setDish({...dish, reviews: [...dish.reviews.filter(review => review._id !== deletedReview._id)]})
+    setDish({...dish, reviews: [...dish.reviews.filter(review => review._id !== reviewId)]})
   }
 
   if(!dish) return <p>Loading...</p>

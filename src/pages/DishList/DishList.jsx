@@ -5,6 +5,7 @@ import styles from './DishList.module.css'
 import DishCard from '../../components/DishCard/DishCard';
 
 const DishList = ({dishes}) => {
+  
   return ( 
     <main className={styles.container}>
       {dishes.map(dish=>

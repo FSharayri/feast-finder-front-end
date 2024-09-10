@@ -7,7 +7,7 @@ import styles from './EditDish.module.css'
 
 const EditDish = (props) => {
   const { state } = useLocation()
-  console.log(state)
+  
   const [formData, setFormData] = useState(state) 
   const handleChange = (evt) => {
   setFormData({ ...formData, [evt.target.name]: evt.target.value })

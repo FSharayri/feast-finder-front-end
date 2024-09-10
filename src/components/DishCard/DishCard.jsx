@@ -8,7 +8,7 @@ import styles from './DishCard.module.css'
 
 const DishCard = ({ dish }) => {
   return (
-    <NavLink to={`/dishes/${dish._id}`}>
+    <NavLink to={`/dishes/${dish?._id}`}>
       <article className={styles.container}>
         <header>
           {dish.photo ? 
