@@ -49,7 +49,7 @@ const DishDetails = (props) => {
           : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
         }
       </header>
-      <h2>{dish.restaurant}</h2>
+      <h2>{dish.restaurant?.name}</h2>
       <h2>{dish.cost}</h2>
       {props.user.profile===dish.owner._id &&
         <>

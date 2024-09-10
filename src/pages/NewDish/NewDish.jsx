@@ -32,18 +32,19 @@ const NewDish = (props) => {
         <h1>Add Dish</h1>
         <label htmlFor="Restaurant-input">Restaurant</label>
         <select
-         required
-         name="restaurant"
-         id="restaurant-input"
-         value={formData.restaurant.name}
-         onChange={handleChange}
-       >
-       <option value="" disabled selected>Select Restaurant</option>
-       {props.restaurants.map((restaurant,idx)=> (
-           <option key={idx} value={restaurant}>
-               {restaurant.name}
-           </option>))} 
-       </select>
+          required
+          name="restaurant"
+          id="restaurant-input"
+          value={formData.restaurant.name}
+          onChange={handleChange}
+          defaultValue='select'
+        >
+          <option value='select' disabled >Select Restaurant</option>
+          {props.restaurants.map((restaurant,idx)=> (
+              <option key={idx} value={restaurant._id}>
+                  {restaurant.name}
+              </option>))} 
+        </select>
         <label htmlFor="name-input">Dish Name</label>
         <input
           required

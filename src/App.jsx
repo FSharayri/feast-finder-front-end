@@ -52,7 +52,7 @@ function App() {
     // dish fetch
     const fetchAllDishes = async () => {
       const dishesData = await dishService.index()
-      console.log(dishesData)
+      
       setDishes(dishesData)
     }
     fetchAllDishes()
@@ -100,6 +100,7 @@ function App() {
   
   const handleAddDish = async (dishFormData) => {
     const newDish = await dishService.create(dishFormData)
+    
     setDishes([newDish, ...dishes])
     navigate('/dishes')
   }
@@ -172,7 +173,7 @@ function App() {
         <Route
           path="/dishes/:dishId"
           element={
-            <DishDetails user={user} />
+            <DishDetails user={user} handleDeleteDish={handleDeleteDish} />
           }
         />
         <Route 
