@@ -37,7 +37,7 @@ const RestaurantDetails = (props) => {
           <h3>{restaurant.cuisine}</h3>
           <h3>{restaurant.zipcode}</h3>
         </header>
-        {restaurant.owner._id === props.user.profile &&
+        {restaurant.owner._id === props.user?.profile &&
           <> 
             <NavLink to={`/restaurants/${restaurantId}/edit`} state={restaurant}>
               <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
