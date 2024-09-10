@@ -1,11 +1,16 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
+
+//assets
+import logo from '../../assets/branding/forker-nobgpng.png'
+
 //css
 import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container}>
+       <NavLink to="/"><img src={logo} alt="A cute googly eyed fork" /></NavLink>
       {user ?
         <ul>
           <li>Welcome, {user.name}</li>  

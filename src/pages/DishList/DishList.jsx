@@ -4,8 +4,6 @@ import styles from './DishList.module.css'
 //components 
 import DishCard from '../../components/DishCard/DishCard';
 
-// import DishCard from '../../components/DishCard/DishCard'
-
 const DishList = ({dishes}) => {
   return ( 
     <main className={styles.container}>
