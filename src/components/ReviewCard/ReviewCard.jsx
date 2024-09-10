@@ -26,7 +26,7 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
         <OwnerInfo content={review} />
       </header>
       <DateCard createdAt={review.createdAt} />
-{/* test comment */}
+{/* Create user ability to UPLOAD PHOTO */}
       <div className={styles.rating}>
         {Array(5).fill().map((_, index) => (
           <img
