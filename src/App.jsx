@@ -172,7 +172,7 @@ function App() {
         <Route
           path="/dishes/:dishId"
           element={
-            <DishDetails user={user} />
+            <DishDetails user={user} handleDeleteDish={handleDeleteDish} />
           }
         />
         <Route 
