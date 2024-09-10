@@ -32,16 +32,8 @@ const EditDish = (props) => {
           placeholder="Name"
           onChange={handleChange}
         />
-        <label htmlFor="text-input">Restaurant</label>   
-        <textarea
-          required
-          type="text"
-          name="restaurant"
-          id="restaurant-input"
-          value={formData?.restaurant}
-          placeholder="Text"
-          onChange={handleChange}
-        />
+        <h4>Restaurant</h4>   
+        <h3>{formData.restaurant.name}</h3>
         <label htmlFor="text-input">Cost</label>   
         <input
           required
