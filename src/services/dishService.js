@@ -57,7 +57,7 @@ async function create(dishFormData) {
 async function update(dishFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${dishFormData._id}`, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
@@ -67,6 +67,7 @@ async function update(dishFormData) {
     const json = await res.json()
     if (json.err) throw new Error(json.err)
     if (json.token) tokenService.setToken(json.token) 
+    return json
   }catch (err) {
     throw new Error(err)
   }
