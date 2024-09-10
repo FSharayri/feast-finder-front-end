@@ -51,7 +51,7 @@ const DishDetails = (props) => {
       </header>
       <h2>{dish.restaurant?.name}</h2>
       <h2>{dish.cost}</h2>
-      {props.user.profile===dish.owner._id &&
+      {props.user?.profile===dish.owner._id &&
         <>
           <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
             <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>

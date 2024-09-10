@@ -18,7 +18,7 @@ import DateCard from "../DeteCard/DateCard"
 const ReviewCard = ({ review, user, handleDeleteReview }) => {
   let controls = false
   
-  if (user.profile === review.owner._id) controls = true
+  if (user?.profile === review.owner._id) controls = true
 
   return (
     <article className={styles.container}>
