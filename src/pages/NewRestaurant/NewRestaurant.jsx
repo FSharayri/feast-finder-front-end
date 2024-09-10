@@ -13,6 +13,8 @@ const NewRestaurant = (props) => {
     zipcode: '',
   })
 
+  const [photoData, setPhotoData] = useState({ photo: null })
+
   const cuisineOptions = [
     "American", "Brazilian", "Caribbean", "Cajun and Creole", "Chinese", "Filipino",
     "French", "Greek", "Indian", "Italian", "Japanese", "Korean", "Lebanese",
@@ -29,6 +31,9 @@ const NewRestaurant = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleChangePhoto = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  }
 
 
   const isFormInvalid = () => {
@@ -97,8 +102,8 @@ const NewRestaurant = (props) => {
           value={formData.zipcode}
           onChange={handleChange}
         />
-        {/* <label htmlFor="photo">Upload Photo</label> */}
-        {/* <input type="file" name="photo" onChange={handleChangePhoto} /> */}
+        <label htmlFor="photo">Upload Photo</label>
+        <input type="file" name="photo" onChange={handleChangePhoto} />
         <div>
             <button disabled={isFormInvalid() || false}></button>
           <Link to="/">CANCEL</Link>
