@@ -10,6 +10,11 @@ import styles from './ReviewCard.module.css'
 // Import the fork SVG
 import forkIcon from '../../assets/icons/fork.svg'
 
+// components
+import DateCard from "../DeteCard/DateCard"
+
+
+
 const ReviewCard = ({ review, user, handleDeleteReview }) => {
   let controls = false
   
@@ -20,6 +25,7 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
       <header>
         <OwnerInfo content={review} />
       </header>
+      <DateCard createdAt={review.createdAt} />
 {/* test comment */}
       <div className={styles.rating}>
         {Array(5).fill().map((_, index) => (
