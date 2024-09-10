@@ -1,9 +1,12 @@
-import { useState } from "react"
+// npm modules
+import { useState, useRef } from "react"
 import { Link } from "react-router-dom"
 // css
 import styles from './NewDish.module.css'
 
 const NewDish = (props) => {
+  const imgInputRef = useRef(null)
+  
   const [formData, setFormData] = useState({
     owner: '',
     name: '',
@@ -11,6 +14,8 @@ const NewDish = (props) => {
     restaurant: "",
     cost: ''
   })
+
+  const [photoData, setPhotoData] = useState({ photo: null })
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
@@ -27,6 +32,31 @@ const NewDish = (props) => {
   }
 
   const ownerRestaurants= props.restaurants.filter(rest=> rest.owner._id ===props.user.profile)
+
+  const handleChangePhoto = evt => {
+    const file = evt.target.files[0]
+    let isFileInvalid = false
+    let errMsg = ""
+    const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
+    const photoFormat = file.name.split('.').at(-1)
+
+    // cloudinary supports files up to 10.4MB each as of May 2023
+    if (file.size >= 10485760) {
+      errMsg = "Image must be smaller than 10.4MB"
+      isFileInvalid = true
+    }
+    if (!validFormats.includes(photoFormat)) {
+      errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
+      isFileInvalid = true
+    }
+    
+    if (isFileInvalid) {
+      imgInputRef.current.value = null
+      return
+    }
+    setPhotoData({ photo: evt.target.files[0] })
+  }
+
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
@@ -64,10 +94,17 @@ const NewDish = (props) => {
           value={formData.license}
           onChange={handleChange}
         />
-        {/* <label htmlFor="photo">Upload Photo</label> */}
-        {/* <input type="file" name="photo" onChange={handleChangePhoto} /> */}
+        <label className={styles.label}>
+          Upload Photo
+          <input 
+            type="file" 
+            name="photo" 
+            onChange={handleChangePhoto}
+            ref={imgInputRef}
+          />
+        </label>
         <div>
-            <button disabled={isFormInvalid() || false}></button>
+            <button disabled={isFormInvalid() || false}>SUBMIT</button>
           <Link to="/">CANCEL</Link>
         </div>
       </form>
