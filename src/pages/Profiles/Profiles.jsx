@@ -26,7 +26,7 @@ const Profile = () => {
     <main className={styles.container}>
       <img src={profile.photo} alt="Profile Photo" />
       <h1>Welcome, {profile.name}!</h1>
-      <p>Restaurant: {profile.isRestaurant.toString()}</p>
+      <p>Restaurant: {profile.isRestaurant?.toString()}</p>
     </main>
   )
 }
