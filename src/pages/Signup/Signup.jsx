@@ -8,6 +8,9 @@ import * as authService from '../../services/authService'
 // css
 import styles from './Signup.module.css'
 
+//components
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch'
+
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
   const imgInputRef = useRef(null)
@@ -21,6 +24,11 @@ const Signup = ({ handleAuthEvt }) => {
   })
   const [photoData, setPhotoData] = useState({ photo: null })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isRestaurant, setIsRestaurant] = useState(false);
+
+  const handleToggle = (btn) => {
+    setIsRestaurant(btn === "restaurant");
+  }
 
   const handleChange = evt => {
     setMessage('')
@@ -52,14 +60,16 @@ const Signup = ({ handleAuthEvt }) => {
     }
     setPhotoData({ photo: evt.target.files[0] })
   }
+  
 
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
       if (!import.meta.env.VITE_BACK_END_SERVER_URL) {
-        throw new Error('No VITE_BACK_END_SERVER_URL in front-end .env')
+        throw new   Error('No VITE_BACK_END_SERVER_URL in front-end .env')
       }
       setIsSubmitted(true)
+      formData['isRestaurant']= isRestaurant 
       await authService.signup(formData, photoData.photo)
       handleAuthEvt()
       navigate('/')
@@ -121,6 +131,7 @@ const Signup = ({ handleAuthEvt }) => {
             ref={imgInputRef}
           />
         </label>
+        <ToggleSwitch handleToggle={handleToggle} isRestaurant={isRestaurant}/>
         <div>
           <Link to="/">Cancel</Link>
           <button
