@@ -3,9 +3,6 @@
 import { useState, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
-// services
-import * as restaurantService from '../../services/restaurantService'
-
 // css
 import styles from './NewRestaurant.module.css'
 
@@ -147,15 +144,14 @@ return (
         value={formData.zipcode}
         onChange={handleChange}
       />
-      <label className={styles.label}>
-        Upload Photo
+      <label className={styles.label} htmlFor="photo-input"> Upload Photo</label>
         <input 
           type="file" 
           name="photo" 
+          id='photo-input'
           onChange={handleChangePhoto}
           ref={imgInputRef}
         />
-      </label>
       <div>
         <button
           className={styles.button}

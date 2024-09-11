@@ -29,6 +29,7 @@ const Signup = ({ handleAuthEvt }) => {
   const handleToggle = (evt,btn) => {
     evt.preventDefault()
     setIsRestaurant(btn === "restaurant");
+    console.log(isRestaurant)
   }
 
   const handleChange = evt => {
@@ -42,7 +43,6 @@ const Signup = ({ handleAuthEvt }) => {
     let errMsg = ""
     const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
     const photoFormat = file.name.split('.').at(-1)
-
     // cloudinary supports files up to 10.4MB each as of May 2023
     if (file.size >= 10485760) {
       errMsg = "Image must be smaller than 10.4MB"
@@ -52,9 +52,7 @@ const Signup = ({ handleAuthEvt }) => {
       errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
       isFileInvalid = true
     }
-    
     setMessage(errMsg)
-    
     if (isFileInvalid) {
       imgInputRef.current.value = null
       return
@@ -70,8 +68,8 @@ const Signup = ({ handleAuthEvt }) => {
         throw new   Error('No VITE_BACK_END_SERVER_URL in front-end .env')
       }
       setIsSubmitted(true)
-      formData['isRestaurant']= isRestaurant 
-      await authService.signup(formData, photoData.photo)
+      const formDataWPhoto= {...formData, isRestaurant}
+      await authService.signup(formDataWPhoto, photoData.photo)
       handleAuthEvt()
       navigate('/')
     } catch (err) {
