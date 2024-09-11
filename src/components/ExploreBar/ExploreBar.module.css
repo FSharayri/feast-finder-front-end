@@ -7,7 +7,7 @@
   top: 75px; /* Place the explorer bar right below the nav bar (same height as nav bar) */
   padding: 14px 21px;
   align-items: center;
-  background: #FFD166;
+  background: #ffc400;
   border-bottom: 1px solid rgb(200, 200, 200);
   justify-content: space-between;
 }

@@ -1,6 +1,7 @@
 .container {
-  /* width: 50%;
-  height: 50%; */
+  width: auto;
+  height: auto;
+  display: flex;
   padding: 14px 21px;
   margin: 80px;
   border-radius: 5px;

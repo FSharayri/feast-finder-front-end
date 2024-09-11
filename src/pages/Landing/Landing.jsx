@@ -18,7 +18,7 @@ const Landing = () => {
           </header>
           <article>
             <p>
-            Whether you're new to town or a seasoned local food enthusiast, FEAST FINDER empowers you to find and explore culinary delights, one dish at a time! Find your next feast with ease. Signup or login to get started.
+            Feast Finder is your go-to app for discovering and sharing the best dishes in town. Whether you’re new to the area or a seasoned local, Feast Finder can guide you to top-rated meals and hidden gems near you. Rate individual dishes with our Fork Rating system, and watch as your favorite restaurants earn scores based on your top picks. Connect with fellow food lovers, find trending dishes, and build your personalized list of must-try spots. Feast Finder is your ultimate guide to enjoying the best flavors your city has to offer!
             </p>
           </article>
         </section>
