@@ -6,21 +6,21 @@
 
 .button {
   padding: 10px 20px;
-  border: 2px solid #2196f3;
+  border: 2px solid #ec623b;
   border-radius: 5px;
   background-color: white;
-  color: #2196f3;
+  color: #ec623b;
   cursor: pointer;
   font-size: 16px;
   transition: 0.3s ease;
 }
 
 .active {
-  background-color: #2196f3;
+  background-color: #ec623b;
   color: white;
 }
 
 .inactive {
   background-color: white;
-  color: #2196f3;
+  color: #ec623b;
 }

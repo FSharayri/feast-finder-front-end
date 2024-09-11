@@ -26,7 +26,8 @@ const Signup = ({ handleAuthEvt }) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isRestaurant, setIsRestaurant] = useState(false);
 
-  const handleToggle = (btn) => {
+  const handleToggle = (evt,btn) => {
+    evt.preventDefault()
     setIsRestaurant(btn === "restaurant");
   }
 
