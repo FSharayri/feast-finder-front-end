@@ -66,7 +66,6 @@ const NewRestaurant = (props) => {
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>Add Restaurant</h1>
-
         <label htmlFor="name-input">Restaurant Name</label>
         <input
           required
@@ -76,7 +75,6 @@ const NewRestaurant = (props) => {
           value={formData.name}
           onChange={handleChange}
         />
-
         <label htmlFor="cuisine">Cuisine</label>
         <select
           required
@@ -92,7 +90,6 @@ const NewRestaurant = (props) => {
             </option>
           ))}
         </select>
-
         <label htmlFor="license"> License Number</label>
         <input
           required
@@ -102,7 +99,6 @@ const NewRestaurant = (props) => {
           value={formData.license}
           onChange={handleChange}
         />
-
         <label htmlFor="licenseState">License State</label>
         <input
           required
@@ -113,7 +109,6 @@ const NewRestaurant = (props) => {
           value={formData.licenseState}
           onChange={handleChange}
         />
-
         <label htmlFor="zipcode"> Zipcode</label>
         <input
           required
