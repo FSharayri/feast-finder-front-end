@@ -12,6 +12,7 @@ const Reviews = (props) => {
           review={review}
           user={props.user}
           handleDeleteReview={props.handleDeleteReview}
+          dishId = {props.dishId}
         />
       ))}
       </>
