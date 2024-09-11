@@ -15,15 +15,23 @@ import DateCard from "../DeteCard/DateCard"
 
 
 
-const ReviewCard = ({ review, user, handleDeleteReview }) => {
-  let controls = false
-  
-  if (user?.profile === review.owner?._id) controls = true
-
+const ReviewCard = ({ dishId, review, user, handleDeleteReview }) => {
   return (
     <article className={styles.container}>
       <header>
-        <OwnerInfo content={review} />
+        <span>
+          <OwnerInfo content={review} />
+          {review.owner._id === user.profile &&
+            <>
+              <NavLink to={`/dishes/${dishId}/reviews/edit`} state={review}>
+                <i className="fa-solid fa-pencil" alt="Edit Pencil"></i>
+              </NavLink>
+              <button onClick={() => handleDeleteReview(review._id)}>
+                <i className="fas fa-trash" alt="Delete Trash Can"></i>
+              </button>
+            </>
+          }
+        </span>
       </header>
       <DateCard createdAt={review.createdAt} />
 {/* Create user ability to UPLOAD PHOTO */}
@@ -37,23 +45,8 @@ const ReviewCard = ({ review, user, handleDeleteReview }) => {
           />
         ))}
       </div>
-
       <h2>{review.comment}</h2>
 
-      {controls ? (
-        <>
-          <NavLink to={`/reviews/${review._id}`} state={review}>
-            <button>
-              <i className="fa-solid fa-pencil" alt="Edit Pencil"></i>
-            </button>
-          </NavLink>
-          <button onClick={() => handleDeleteReview(review._id)}>
-            <i className="fas fa-trash" alt="Delete Trash Can"></i>
-          </button>
-        </>
-      ) : (
-        ''
-      )}
     </article>
   );
 };

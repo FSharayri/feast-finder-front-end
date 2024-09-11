@@ -102,6 +102,24 @@ async function deleteReview(dishId,reviewId){
     console.log(error)
   }
 }
+const updateReview = async (dishId, reviewFormData) => {
+  try {
+    reviewFormData._id
+    const res = await fetch(`${BASE_URL}/${dishId}/reviews/${reviewFormData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 
 export {
   index,
@@ -111,5 +129,6 @@ export {
   update,
   createReview,
   deleteReview,
+  updateReview,
 }
 

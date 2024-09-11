@@ -61,7 +61,7 @@ const DishDetails = (props) => {
     <section>
       <h5>{dish.reviews.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
-      <Reviews reviews={dish.reviews} user={props.user} handleDeleteReview={handleDeleteReview}/>
+      <Reviews dishId={dishId} reviews={dish.reviews} user={props.user} handleDeleteReview={handleDeleteReview}/>
     </section>
   </main>
   )

@@ -25,6 +25,7 @@ import NewDish from './pages/NewDish/NewDish'
 import NavBar from './components/NavBar/NavBar'
 import ExploreBar from './components/ExploreBar/ExploreBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import EditReview from './pages/EditReview/EditReview'
 
 // services
 import * as authService from './services/authService'
@@ -202,6 +203,12 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/dishes/:dishId/reviews/edit" element={
+          <ProtectedRoute user={user}>
+            <EditReview />
+          </ProtectedRoute>
+
+        }/>
       </Routes>
     </>
   )
