@@ -89,9 +89,9 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Sign Up</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+      <h1>Sign Up</h1>
         <label className={styles.label}>
           Name
           <input type="text" value={name} name="name" onChange={handleChange} />
@@ -134,13 +134,13 @@ const Signup = ({ handleAuthEvt }) => {
         </label>
         <ToggleSwitch handleToggle={handleToggle} isRestaurant={isRestaurant}/>
         <div>
-          <Link to="/">Cancel</Link>
           <button
             className={styles.button}
             disabled={ isFormInvalid() || isSubmitted }
           >
             {!isSubmitted ? 'Sign Up' : '🍕 Sending...'}
           </button>
+          <Link to="/">Cancel</Link>
         </div>
       </form>
     </main>
