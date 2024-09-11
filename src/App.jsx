@@ -101,8 +101,8 @@ function App() {
     navigate('/dishes')
   }
   
-  const handleAddDish = async (dishFormData) => {
-    const newDish = await dishService.create(dishFormData)
+  const handleAddDish = async (dishFormData,photo) => {
+    const newDish = await dishService.create(dishFormData,photo)
     //updates the restaurant this dish was added to 
     const restaurantId = dishFormData.restaurant
     const restaurantDishes = dishes.filter(dish=>dish.restaurant===restaurantId)

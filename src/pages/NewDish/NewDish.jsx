@@ -1,11 +1,11 @@
 // npm modules
 import { useState, useRef } from "react"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 // css
 import styles from './NewDish.module.css'
 
 const NewDish = (props) => {
-  
+  const navigate = useNavigate()
   
   const [formData, setFormData] = useState({
     owner: '',
@@ -14,6 +14,7 @@ const NewDish = (props) => {
     restaurant: "",
     cost: ''
   })
+  const [message, setMessage] = useState('')
 
   //photo 
   const imgInputRef = useRef(null)
@@ -27,11 +28,14 @@ const NewDish = (props) => {
 
     // cloudinary supports files up to 10.4MB each as of May 2023
     if (file.size >= 10485760) {
+      errMsg = "Image must be smaller than 10.4MB"
       isFileInvalid = true
     }
     if (!validFormats.includes(photoFormat)) {
+      errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
       isFileInvalid = true
     }
+    setMessage(errMsg)
     
     if (isFileInvalid) {
       imgInputRef.current.value = null
@@ -44,10 +48,12 @@ const NewDish = (props) => {
     evt.preventDefault()
 
     props.handleAddDish(formData, photoData.photo)
+    navigate('/dishes')
   
   }
 
   const handleChange = (evt) => {
+    setMessage('')
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
@@ -62,6 +68,7 @@ const NewDish = (props) => {
 
   return (
     <main className={styles.container}>
+      <p>{message}</p>
       <form onSubmit={handleSubmit}>
         <h1>Add Dish</h1>
         <label htmlFor="Restaurant-input">Restaurant</label>
