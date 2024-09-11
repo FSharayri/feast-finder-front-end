@@ -1,5 +1,5 @@
 // assets
-import logotype from '../../assets/branding/forker-wtext.png'
+import logotype from '../../assets/branding/forker-with-text.png'
 
 // css
 import styles from './Landing.module.css'
