@@ -43,7 +43,8 @@ const DishDetails = (props) => {
       <header>
         <h1>{dish.name}</h1>
         {dish.photo ? 
-          <img src={dish.photo} alt="Dish Image" />
+          // <img src={dish.photo} alt="Dish Image" />
+          <h1>{dish.photo}</h1>
           : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
         }
       </header>

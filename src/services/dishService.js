@@ -35,7 +35,7 @@ async function deleteDish(dishId) {
   }
 }
 
-async function create(dishFormData) {
+async function create(dishFormData,photo) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -48,10 +48,34 @@ async function create(dishFormData) {
     const json = await res.json()
     if (json.err) throw new Error(json.err)
     if (json.token) tokenService.setToken(json.token) 
+    if (photo){
+      console.log(json._id)
+      const photoRes = await addDishPhoto(photo,json._id)
+      
+      json.photo= photoRes
+    }
     return json
   }catch (err) {
     throw new Error(err)
   }
+}
+async function addDishPhoto(photo,dishId){
+  try {
+    const photoFormData = new FormData()
+    photoFormData.append('photo', photo)
+    console.log(photoFormData)
+    const res = await fetch(`${BASE_URL}/${dishId}/add-photo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: photoFormData,
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+
 }
 
 async function update(dishFormData) {
