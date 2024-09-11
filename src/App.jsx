@@ -86,7 +86,7 @@ function App() {
   const handleUpdateRestaurant = async (restaurantFormData) => {
     const updatedRestaurant = await restaurantService.update(restaurantFormData)
     setRestaurants(restaurants.map((restaurant) => restaurant._id === updatedRestaurant._id ? updatedRestaurant : restaurant))
-    navigate('/restaurants')
+    navigate(`/restaurants/${updatedRestaurant._id}`)
   }
 
   const handleUpdateDish = async (dishFormData) => {
@@ -111,9 +111,7 @@ function App() {
       dishes: restaurantDishes
     }
     handleUpdateRestaurant(restaurantFormData)
-
     setDishes([newDish, ...dishes])
-    navigate('/dishes')
   }
 
   return (
