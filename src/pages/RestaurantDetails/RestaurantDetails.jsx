@@ -31,8 +31,7 @@ const RestaurantDetails = (props) => {
     <main className={styles.container}>
       <article>
         <header>
-          {restaurant.photo}
-          {/* <img src={restaurant.photo} alt="The user's avatar" /> */}
+          <img src={restaurant.photo} alt="Restaurant photo" />
           <h1>{restaurant.name}</h1>
           <h3>{restaurant.cuisine}</h3>
           <h3>{restaurant.zipcode}</h3>

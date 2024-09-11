@@ -1,12 +1,19 @@
+
 // npm modules
 import { useState, useRef } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+
+// services
+import * as restaurantService from '../../services/restaurantService'
+
 // css
 import styles from './NewRestaurant.module.css'
 
 const NewRestaurant = (props) => {
+  const navigate = useNavigate()
   const imgInputRef = useRef(null)
 
+  const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     cuisine: '',
@@ -15,8 +22,6 @@ const NewRestaurant = (props) => {
     zipcode: '',
   })
 
-  const [photoData, setPhotoData] = useState({ photo: null })
-
   const cuisineOptions = [
     "American", "Brazilian", "Caribbean", "Cajun and Creole", "Chinese", "Filipino",
     "French", "Greek", "Indian", "Italian", "Japanese", "Korean", "Lebanese",
@@ -24,18 +29,13 @@ const NewRestaurant = (props) => {
     "Vietnamese", "Other"
   ]
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    props.handleAddRestaurant(formData)
-  }
+  const [photoData, setPhotoData] = useState({ photo: null })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (evt) => {
+  
+  const handleChange = evt => {
+    setMessage('')
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const isFormInvalid = () => {
-    // TODO Add logic to check if the form is invalid 
-    return false
   }
 
   const handleChangePhoto = evt => {
@@ -54,6 +54,7 @@ const NewRestaurant = (props) => {
       errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
       isFileInvalid = true
     }
+    setMessage(errMsg)
     
     if (isFileInvalid) {
       imgInputRef.current.value = null
@@ -62,8 +63,30 @@ const NewRestaurant = (props) => {
     setPhotoData({ photo: evt.target.files[0] })
   }
 
-  return (
-    <main className={styles.container}>
+  const handleSubmit = async evt => {
+    evt.preventDefault()
+    try {
+      if (!import.meta.env.VITE_BACK_END_SERVER_URL) {
+        throw new   Error('No VITE_BACK_END_SERVER_URL in front-end .env')
+      }
+      setIsSubmitted(true)
+      props.handleAddRestaurant(formData, photoData.photo)
+      navigate('/restaurants')
+    } catch (err) {
+      console.log(err)
+      setMessage(err.message)
+      setIsSubmitted(false)
+    }
+  }
+
+  const { name, cuisine, license, licenseState, zipcode } = formData
+  
+  const isFormInvalid = () => {
+  return !(name && cuisine && license && licenseState && zipcode) 
+  } 
+
+return (
+  <main className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>Add Restaurant</h1>
 
@@ -133,7 +156,12 @@ const NewRestaurant = (props) => {
           />
         </label>
         <div>
-            <button disabled={isFormInvalid() || false}>SUBMIT</button>
+          <button
+            className={styles.button}
+            disabled={ isFormInvalid() || isSubmitted }
+          >
+            {!isSubmitted ? 'SIGN UP' : '🍕 SENDING...'}
+          </button>
           <Link to="/">CANCEL</Link>
         </div>
       </form>
