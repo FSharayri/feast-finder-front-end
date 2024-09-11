@@ -3,9 +3,6 @@
 import { useState, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
-// services
-import * as restaurantService from '../../services/restaurantService'
-
 // css
 import styles from './NewRestaurant.module.css'
 
