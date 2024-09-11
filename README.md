@@ -1,4 +1,3 @@
-
 <img src = './src/assets/branding/landing.png' alt = 'Home page' width = 60%>
 
 # FEAST FINDER

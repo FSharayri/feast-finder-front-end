@@ -144,15 +144,14 @@ return (
         value={formData.zipcode}
         onChange={handleChange}
       />
-      <label className={styles.label}>
-        Upload Photo
+      <label className={styles.label} htmlFor="photo-input"> Upload Photo</label>
         <input 
           type="file" 
           name="photo" 
+          id='photo-input'
           onChange={handleChangePhoto}
           ref={imgInputRef}
         />
-      </label>
       <div>
         <button
           className={styles.button}
