@@ -46,10 +46,7 @@ const NewDish = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-
     props.handleAddDish(formData, photoData.photo)
-    navigate('/dishes')
-  
   }
 
   const handleChange = (evt) => {
