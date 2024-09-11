@@ -87,86 +87,86 @@ const NewRestaurant = (props) => {
 
 return (
   <main className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <h1>Add Restaurant</h1>
+    <p>{message}</p>
+    <form onSubmit={handleSubmit}>
+      <h1>Add Restaurant</h1>
 
-        <label htmlFor="name-input">Restaurant Name</label>
-        <input
-          required
-          type="text"
-          name="name"
-          id="name-input"
-          value={formData.name}
-          onChange={handleChange}
+      <label htmlFor="name-input">Restaurant Name</label>
+      <input
+        required
+        type="text"
+        name="name"
+        id="name-input"
+        value={formData.name}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="cuisine">Cuisine</label>
+      <select
+        required
+        name="cuisine"
+        id="cuisine"
+        value={formData.cuisine}
+        onChange={handleChange}
+      >
+        <option value="" disabled>Select Cuisine</option>
+        {cuisineOptions.map((cuisine) => (
+          <option key={cuisine} value={cuisine}>
+            {cuisine}
+          </option>
+        ))}
+      </select>
+
+      <label htmlFor="license"> License Number</label>
+      <input
+        required
+        type="number"
+        name="license"
+        id="license"
+        value={formData.license}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="licenseState">License State</label>
+      <input
+        required
+        type="text"
+        name="licenseState"
+        id="licenseState"
+        placeholder="e.g: NY"
+        value={formData.licenseState}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="zipcode"> Zipcode</label>
+      <input
+        required
+        type="number"
+        name="zipcode"
+        id="zipcode"
+        value={formData.zipcode}
+        onChange={handleChange}
+      />
+      <label className={styles.label}>
+        Upload Photo
+        <input 
+          type="file" 
+          name="photo" 
+          onChange={handleChangePhoto}
+          ref={imgInputRef}
         />
-
-        <label htmlFor="cuisine">Cuisine</label>
-        <select
-          required
-          name="cuisine"
-          id="cuisine"
-          value={formData.cuisine}
-          onChange={handleChange}
+      </label>
+      <div>
+        <button
+          className={styles.button}
+          disabled={ isFormInvalid() || isSubmitted }
         >
-          <option value="" disabled>Select Cuisine</option>
-          {cuisineOptions.map((cuisine) => (
-            <option key={cuisine} value={cuisine}>
-              {cuisine}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="license"> License Number</label>
-        <input
-          required
-          type="number"
-          name="license"
-          id="license"
-          value={formData.license}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="licenseState">License State</label>
-        <input
-          required
-          type="text"
-          name="licenseState"
-          id="licenseState"
-          placeholder="e.g: NY"
-          value={formData.licenseState}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="zipcode"> Zipcode</label>
-        <input
-          required
-          type="number"
-          name="zipcode"
-          id="zipcode"
-          value={formData.zipcode}
-          onChange={handleChange}
-        />
-        <label className={styles.label}>
-          Upload Photo
-          <input 
-            type="file" 
-            name="photo" 
-            onChange={handleChangePhoto}
-            ref={imgInputRef}
-          />
-        </label>
-        <div>
-          <button
-            className={styles.button}
-            disabled={ isFormInvalid() || isSubmitted }
-          >
-            {!isSubmitted ? 'SIGN UP' : '🍕 SENDING...'}
-          </button>
-          <Link to="/">CANCEL</Link>
-        </div>
-      </form>
-    </main>
-  )
-}
+          {!isSubmitted ? 'SIGN UP' : '🍕 SENDING...'}
+        </button>
+        <Link to="/">CANCEL</Link>
+      </div>
+    </form>
+  </main>
+)}
 
 export default NewRestaurant
