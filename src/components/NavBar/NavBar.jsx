@@ -15,8 +15,8 @@ const NavBar = ({ user, handleLogout }) => {
         <ul>
           <li>Welcome, {user.name}</li>  
           <li><NavLink to="/profile">Profile</NavLink></li>
+          <li><NavLink to="/auth/change-password">Settings</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>Log Out <i className="fa-solid fa-right-from-bracket"></i></NavLink></li>
-          <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
         </ul>
       :
         <ul>

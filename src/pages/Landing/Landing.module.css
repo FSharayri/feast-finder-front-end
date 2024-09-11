@@ -19,7 +19,6 @@
 .container section > img {
   width: 25%;
   min-width: 460px;
-  margin-bottom: 80px;
 }
 
 .splash {
@@ -58,6 +57,7 @@
   width: 100%;
   font-size: 16px;
   line-height: 28px;
+
 }
 
 .container section > header * {
@@ -73,7 +73,7 @@
 
 .container section > header h3 {
   font-size: 16px;
-  color: #1789fc;
+  color: #00a0df;
 }
 
 .testimonial > header {

@@ -1,5 +1,5 @@
 .container {
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,6 +45,13 @@
   margin-top: 14px;
   text-align: center;
   color: rgb(200, 200, 200);
+}
+
+.container span {
+  display: flex;
+  align-items: center;
+  margin: 7px 0px 12px 0px;
+  justify-content: space-between;
 }
 
 input:focus, select:focus, textarea:focus {
