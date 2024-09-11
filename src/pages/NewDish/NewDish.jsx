@@ -62,8 +62,6 @@ const NewDish = (props) => {
     return false
   }
 
-  const ownerRestaurants= props.restaurants.filter(rest=> rest.owner ===props.user.profile)
-
   
 
   return (
@@ -81,8 +79,8 @@ const NewDish = (props) => {
           defaultValue='select'
         >
           <option value='select' disabled >Select Restaurant</option>
-          {ownerRestaurants.map((restaurant,idx)=> (
-              <option key={idx} value={restaurant._id}>
+          {props.restaurants.filter(rest=> (rest.owner._id? rest.owner._id: rest.owner) === props.user.profile).map((restaurant)=> (
+              <option key={restaurant._id} value={restaurant._id}>
                   {restaurant.name}
               </option>))} 
         </select>
