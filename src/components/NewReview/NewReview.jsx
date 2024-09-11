@@ -9,7 +9,7 @@ import styles from './NewReview.module.css'
 const NewReview = (props) => {
   const [formData, setFormData] = useState({ 
     comment: '',
-    rating: 0,
+    rating: 1,
     photo: ''
   })
   
@@ -21,7 +21,7 @@ const NewReview = (props) => {
     evt.preventDefault()
     props.handleAddReview(formData)
     setFormData({ comment: '',
-    rating: 0,
+    rating: 1,
     photo: '' })
   }
 
@@ -30,7 +30,9 @@ const NewReview = (props) => {
       <label htmlFor="rating-input">Rate Dish</label>   
         <input
           required
-          type="Number"
+          type="number"
+          min='1'
+          max='5'
           name="rating"
           id="rating-input"
           value={formData.rating}
