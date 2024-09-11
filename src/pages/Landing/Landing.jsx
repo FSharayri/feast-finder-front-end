@@ -18,14 +18,14 @@ const Landing = () => {
           </header>
           <article>
             <p>
-              Find your next feast with ease. Signup or login to begin.
+            Whether you're new to town or a seasoned local food enthusiast, FEAST FINDER empowers you to find and explore culinary delights, one dish at a time! Find your next feast with ease. Signup or login to get started.
             </p>
           </article>
         </section>
-      </main>
-      {/* <footer className={styles.footer}>
+        </main>
+        <footer className={styles.footer}>
         <p>© 2024 FEAST FINDERS INC. FORK RIGHTS RESERVED</p>
-      </footer> */}
+      </footer>
     </>
   )
 }

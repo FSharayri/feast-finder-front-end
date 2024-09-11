@@ -11,7 +11,6 @@ const RestaurantList = (props) => {
     return(
       <>
         <main className={styles.container}>
-        <NavLink to="/restaurants/new">Add Restaurant</NavLink>
           {props.restaurants.map(restaurant => 
             <RestaurantCard restaurant={restaurant} key={restaurant._id} />
           )}

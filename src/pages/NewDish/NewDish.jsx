@@ -85,15 +85,15 @@ const NewDish = (props) => {
           value={formData.name}
           onChange={handleChange}
         />
-        <label htmlFor="license"> Cost</label>
-        <input
+        <label htmlFor="cost"> Cost</label>
+        <span>$ <input
           required
           type="number"
           name="cost"
           id="cost"
-          value={formData.license}
+          value={formData.cost}
           onChange={handleChange}
-        />
+        /></span>
         <label className={styles.label}>
           Upload Photo
           <input 

@@ -37,15 +37,15 @@ const Profile = () => {
           </span>
         </header>
         <div>
-          <h2>Restaurant: {profile.isRestaurant?.toString()}</h2>
+          {/* <h2>Restaurant: {profile.isRestaurant?.toString()}</h2> */}
         </div>
         <br />
         {profile.isRestaurant ? (
           <div>
-            <Link to="/restaurants/new"><i class="fa-solid fa-square-plus"></i> Restaurant</Link>
+            <Link to="/restaurants/new"><i class="fa-solid fa-square-plus"></i> Add Restaurant</Link>
             <br />
             <br />
-            <Link to="/dishes/new"><i class="fa-solid fa-square-plus"></i> Dish</Link>
+            <Link to="/dishes/new"><i class="fa-solid fa-square-plus"></i> Add Dish</Link>
           </div>
         ) : (
           null

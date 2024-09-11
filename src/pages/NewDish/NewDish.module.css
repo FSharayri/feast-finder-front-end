@@ -47,6 +47,13 @@
   color: rgb(200, 200, 200);
 }
 
+.container span {
+  display: flex;
+  align-items: center;
+  margin: 7px 0px 12px 0px;
+  justify-content: space-between;
+}
+
 input:focus, select:focus, textarea:focus {
   outline: none;
   border: 1px solid var(--primary);
