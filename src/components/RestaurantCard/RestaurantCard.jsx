@@ -9,11 +9,11 @@ import styles from './RestaurantCard.module.css'
 const RestaurantCard = ({ restaurant }) => {
   return (
     <NavLink to={`/restaurants/${restaurant._id}`}>
-      {restaurant.image 
+      {restaurant.photo 
         ? <img
             style={{ width: '320px' }}
-            src={'image goes here'}
-            alt={`A (scary) ${restaurant.name}!`}
+            src={restaurant.photo}
+            alt={`Photo of ${restaurant.name}`}
           />
         : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
       }

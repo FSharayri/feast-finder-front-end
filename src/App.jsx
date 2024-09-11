@@ -76,8 +76,9 @@ function App() {
     navigate('/restaurants')
   }
   
-  const handleAddRestaurant = async (restaurantFormData) => {
-    const newRestaurant = await restaurantService.create(restaurantFormData)
+  const handleAddRestaurant = async (restaurantFormData, photo) => {
+    const newRestaurant = await restaurantService.create(restaurantFormData, photo)
+    console.log(newRestaurant._id)
     setRestaurants([newRestaurant, ...restaurants])
     navigate('/restaurants')
   }

@@ -36,10 +36,10 @@ const Profile = () => {
         <br />
         {profile.isRestaurant ? (
           <div>
-            <Link to="/restaurants/new"><i class="fa-solid fa-square-plus"></i> Add Restaurant</Link>
+            <Link to="/restaurants/new"><i className="fa-solid fa-square-plus"></i> Add Restaurant</Link>
             <br />
             <br />
-            <Link to="/dishes/new"><i class="fa-solid fa-square-plus"></i> Add Dish</Link>
+            <Link to="/dishes/new"><i className="fa-solid fa-square-plus"></i> Add Dish</Link>
           </div>
         ) : (
           null
