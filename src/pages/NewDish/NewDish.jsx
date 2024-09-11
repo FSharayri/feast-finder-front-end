@@ -62,7 +62,7 @@ const NewDish = (props) => {
     return false
   }
 
-  const ownerRestaurants= props.restaurants.filter(rest=> rest.owner._id ===props.user.profile)
+  const ownerRestaurants= props.restaurants.filter(rest=> rest.owner ===props.user.profile)
 
   
 
