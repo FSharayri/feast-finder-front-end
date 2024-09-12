@@ -24,11 +24,11 @@ const RestaurantList = ({restaurants}) => {
       <>
         <main className={styles.container}>
           {cuisinesArray.map(cuisine => 
-              <div key={cuisine[0]} className={styles.cuisine}>
-                <div className={styles.bars}><h1>{cuisine[0]}</h1></div>
-                {cuisine[1].map(restaurant=> 
-                <RestaurantCard restaurant={restaurant} key={restaurant._id} />)}
-              </div>
+            <div key={cuisine[0]} className={styles.cuisine}>
+              <div className={styles.bars}><h1>{cuisine[0]}</h1></div>
+              {cuisine[1].map(restaurant=> 
+              <RestaurantCard restaurant={restaurant} key={restaurant._id} />)}
+            </div>
           )}
         </main>
       </>
