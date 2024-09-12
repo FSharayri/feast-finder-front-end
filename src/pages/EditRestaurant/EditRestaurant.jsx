@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
 //css
@@ -66,7 +66,7 @@ const EditRestaurant = (props) => {
           value={formData.licenseState}
           onChange={handleChange}
         />
-        
+
         <label htmlFor="photo-input">Zipcode</label>
         <input
           type="number"
