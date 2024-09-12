@@ -21,7 +21,7 @@ const Profile = () => {
   }, [])
 
   if (!profile) { 
-    return <main className={styles.container}><h1>🍕 Loading...</h1></main>
+    return <main className={styles.container}><h1>🍕 LOADING...</h1></main>
   }
 
   return (
@@ -30,7 +30,7 @@ const Profile = () => {
         <header>
           <span>
             <img src={profile.photo} alt="Profile Photo" />
-            <h1> Welcome, {profile.name}!</h1>
+            <h1>Welcome, {profile.name}!</h1>
           </span>
         </header>
         <br />
@@ -44,12 +44,8 @@ const Profile = () => {
         ) : (
           null
         )}
+        <br />
       </article>
-      <br />
-      <br />
-      <section>
-        <h1>Favorite Dishes</h1>
-      </section>
     </main>
   )
 }
