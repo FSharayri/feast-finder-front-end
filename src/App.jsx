@@ -154,9 +154,11 @@ function App() {
         <Route
           path="/restaurants/:restaurantId"
           element={
+            <ProtectedRoute user={user}>
             <RestaurantDetails 
             user={user} 
             handleDeleteRestaurant = {handleDeleteRestaurant}/> 
+            </ProtectedRoute>
           }
         />
         <Route 
@@ -183,7 +185,9 @@ function App() {
         <Route
           path="/dishes/:dishId"
           element={
+            <ProtectedRoute user={user}>
             <DishDetails user={user} handleDeleteDish={handleDeleteDish} />
+            </ProtectedRoute>
           }
         />
         <Route 
