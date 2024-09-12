@@ -6,9 +6,14 @@
 # FEAST FINDER
 Feast Finder is your go-to app for discovering and sharing the best dishes in town. Whether you’re new to the area or a seasoned local, Feast Finder can guide you to top-rated meals and hidden gems near you. Rate individual dishes with our Fork Rating system, and watch as your favorite restaurants earn scores based on your top picks. Connect with fellow food lovers, find trending dishes, and build your personalized list of must-try spots. Feast Finder is your ultimate guide to enjoying the best flavors your city has to offer!
 
+# Feast Finders Team
+* [Faris Sharayri - Full Stack Developer, UI Developer, Github Manager](https://github.com/FSharayri)
+* [Ito Aghayere - Full Stack Developer, UI Developer, Database Manager, Project Manager](https://github.com/incogn-ito)
+* [Na Xu - Full Stack Developer, UI Developer, Documents Manager](https://github.com/Nani1345)
 
-# Webpage 
-* [Start You Feast Finder](https://feastfinder.netlify.app/)
+# [Open Feast Finder](https://feastfinder.netlify.app/)
+
+# Planning 
 * [Trello](https://trello.com/b/9LWlJaLO/feast-finder)
 
 # Technologies Used
@@ -23,13 +28,12 @@ Feast Finder is your go-to app for discovering and sharing the best dishes in to
 ![MONGODB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 # Attributions
-* Logo--[chatgpt](https://chatgpt.com/)
-* Images--[pixabay](https://pixabay.com)
-
+* [Pixabay](https://pixabay.com) - Images
+* [Hero Patterns](https://heropatterns.com) - Background
+* [Chatgpt](https://chatgpt.com/) - Logo
 
 # Next Steps
-* As a user, I want to have access to an API of restaurants and their dishes in my locality
-* Add search botton allow users to quickly get their target restaurant or dish
-* Add dishes favorites list allow users to track their favorites dishes and restaurants in their profiles
-* Add edit botton allow users to update their profiles
-* Add photo upload button allow users to attach photoes in their reviews
+* Add search botton to allow users to find restaurants and dishes
+* Allow users to track their favorites dishes and restaurants in their profiles but pulling dishes into a favorites list
+* Add photo upload functionality so users can attach photos in their reviews
+* Use API of restaurants and dishes to give user ability to search for restaurants nearby
