@@ -19,7 +19,7 @@ const RestaurantList = ({restaurants}) => {
       cuisinesArray.push([cuisine, cuisines[cuisine]])
     }
     cuisinesArray.sort((a,b)=> b[1].length-a[1].length)
-    console.log(cuisinesArray)
+
     return(
       <>
         <main className={styles.container}>

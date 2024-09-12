@@ -23,7 +23,6 @@ const NewDish = (props) => {
     let errMsg = ""
     const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
     const photoFormat = file.name.split('.').at(-1)
-
     // cloudinary supports files up to 10.4MB each as of May 2023
     if (file.size >= 10485760) {
       errMsg = "Image must be smaller than 10.4MB"
@@ -34,7 +33,6 @@ const NewDish = (props) => {
       isFileInvalid = true
     }
     setMessage(errMsg)
-    
     if (isFileInvalid) {
       imgInputRef.current.value = null
       return
@@ -50,11 +48,6 @@ const NewDish = (props) => {
   const handleChange = (evt) => {
     setMessage('')
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const isFormInvalid = () => {
-    // TODO Add logic to check if the form is invalid 
-    return false
   }
 
   return (
@@ -105,7 +98,7 @@ const NewDish = (props) => {
           />
         </label>
         <div>
-            <button disabled={isFormInvalid() || false}><i className="fa-solid fa-square-plus"></i></button>
+            <button><i className="fa-solid fa-square-plus"></i></button>
           <Link to="/">CANCEL</Link>
         </div>
       </form>

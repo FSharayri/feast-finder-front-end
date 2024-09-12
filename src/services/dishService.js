@@ -30,7 +30,7 @@ async function deleteDish(dishId) {
       }
     })
     return res.json()
-  } catch (error) {
+  } catch(error) {
     console.log(error)
   }
 }
@@ -128,7 +128,6 @@ async function deleteReview(dishId,reviewId){
 }
 const updateReview = async (dishId, reviewFormData) => {
   try {
-    reviewFormData._id
     const res = await fetch(`${BASE_URL}/${dishId}/reviews/${reviewFormData._id}`, {
       method: 'PUT',
       headers: {
@@ -142,8 +141,6 @@ const updateReview = async (dishId, reviewFormData) => {
     console.log(error)
   }
 }
-
-
 
 export {
   index,
