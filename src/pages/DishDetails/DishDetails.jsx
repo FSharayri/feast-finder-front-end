@@ -42,8 +42,8 @@ const DishDetails = (props) => {
     <article>
       <header>
         {dish.photo ? 
-          <img src={dish.photo} alt="Dish Image" />
-          : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
+          <div className={styles.picture}><img src={dish.photo} alt="Dish Image" /></div>
+          : null
         }
       </header>
       <h1>{dish.name}</h1>
