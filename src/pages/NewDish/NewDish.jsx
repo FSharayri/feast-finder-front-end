@@ -1,12 +1,10 @@
 // npm modules
 import { useState, useRef } from "react"
-import { Link,useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 // css
 import styles from './NewDish.module.css'
 
 const NewDish = (props) => {
-  const navigate = useNavigate()
-  
   const [formData, setFormData] = useState({
     owner: '',
     name: '',
