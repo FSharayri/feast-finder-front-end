@@ -178,7 +178,7 @@ function App() {
         />
         <Route
           path="/dishes"
-          element={<DishList dishes={dishes} profile={profile} />
+          element={<DishList dishes={dishes}  />
         }
         />
         <Route
