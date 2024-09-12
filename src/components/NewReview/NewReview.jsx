@@ -1,11 +1,6 @@
 // npm imports
 import { useState } from "react"
 
-// css
-import styles from './NewReview.module.css'
-
-
-
 const NewReview = (props) => {
   const [formData, setFormData] = useState({ 
     comment: '',
@@ -26,7 +21,7 @@ const NewReview = (props) => {
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="rating-input">Rate Dish</label>   
         <input
           required
