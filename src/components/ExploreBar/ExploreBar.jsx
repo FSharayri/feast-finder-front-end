@@ -7,8 +7,8 @@ const ExploreBar = () => {
   return (
     <nav className={styles.container}>
       <ul>
-        <li><NavLink to="/dishes"><i className="fa-solid fa-bowl-rice"></i> Dishes</NavLink></li>
-        <li><NavLink to="/restaurants"><i className="fa-solid fa-wine-glass"></i> Restaurants</NavLink></li>
+        <li><NavLink to="/dishes">Dishes <i className="fa-solid fa-utensils"></i></NavLink></li>
+        <li><NavLink to="/restaurants">Restaurants <i className="fa-solid fa-wine-glass"></i></NavLink></li>
       </ul>
     </nav>
   )
