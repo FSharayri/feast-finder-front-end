@@ -17,7 +17,7 @@ const DishCard = ({ dish }) => {
         <div className={styles['dish-info']}>
           <h1>{dish.name}</h1>
           <h2>{dish.restaurant?.name}</h2>
-          <h3>{dish.cost} $</h3>
+          <h3>$ {dish.cost}</h3>
         </div>
       </article>
     </NavLink>

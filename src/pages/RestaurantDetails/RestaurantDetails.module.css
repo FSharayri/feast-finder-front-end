@@ -26,14 +26,15 @@
   border-radius: 10%; /* Rounded square */
   object-fit: cover;
   border: 2px solid var(--border);
+
 }
 
 .container img {
   width: 175px; /* Adjust the size of the image as necessary */
   height: 175px;
   border-radius: 10%;
-  border: 2px solid #ffc400da;
-  background: #ffc400da;
+  background: #ff0909;
+  border: 1px solid  #2a0009aa;
   object-fit: cover;
 }
 
