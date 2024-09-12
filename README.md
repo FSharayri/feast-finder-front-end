@@ -1,4 +1,7 @@
+Home Page
 <img src = './src/assets/branding/landing.png' alt = 'Home page' width = 80%>
+Forker
+<img src = './src/assets/branding/fork.png' alt = 'Home page' width = 80%>
 
 # FEAST FINDER
 Feast Finder is your go-to app for discovering and sharing the best dishes in town. Whether you’re new to the area or a seasoned local, Feast Finder can guide you to top-rated meals and hidden gems near you. Rate individual dishes with our Fork Rating system, and watch as your favorite restaurants earn scores based on your top picks. Connect with fellow food lovers, find trending dishes, and build your personalized list of must-try spots. Feast Finder is your ultimate guide to enjoying the best flavors your city has to offer!
@@ -20,11 +23,13 @@ Feast Finder is your go-to app for discovering and sharing the best dishes in to
 ![MONGODB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 # Attributions
-* Chatgpt - use chatgpt create logo of feast finder
-* pixabay - some dishes and images are from pixabay
+* Logo--[chatgpt](https://chatgpt.com/)
+* Images--[pixabay](https://pixabay.com)
 
 
 # Next Steps
-* Add search botton so that allow users to quickly get their target restaurant or dish
-* Allow users to add dishes to favorites list, and show their favorites dishes and restaurants in their profile
-* Add photo upload for reviews
+* As a user, I want to have access to an API of restaurants and their dishes in my locality
+* Add search botton allow users to quickly get their target restaurant or dish
+* Add dishes favorites list allow users to track their favorites dishes and restaurants in their profiles
+* Add edit botton allow users to update their profiles
+* Add photo upload button allow users to attach photoes in their reviews
