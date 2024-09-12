@@ -1,12 +1,12 @@
-<img src = './src/assets/branding/landing.png' alt = 'Home page' width = 60%>
+<img src = './src/assets/branding/landing.png' alt = 'Home page' width = 80%>
 
 # FEAST FINDER
-Welcome to Feast Finder! Ever found yourself hungry, unsure of what to eat, and struggling to decide on the perfect dish? Whether you're new in town or a local food enthusiast, Feast Finder is here to help. Our app provides personalized recommendations for restaurants and dishes tailored to your cravings, making it easy to discover and explore culinary delights. Say goodbye to mealtime indecision and let Feast Finder guide you to your next great meal!
+Feast Finder is your go-to app for discovering and sharing the best dishes in town. Whether you’re new to the area or a seasoned local, Feast Finder can guide you to top-rated meals and hidden gems near you. Rate individual dishes with our Fork Rating system, and watch as your favorite restaurants earn scores based on your top picks. Connect with fellow food lovers, find trending dishes, and build your personalized list of must-try spots. Feast Finder is your ultimate guide to enjoying the best flavors your city has to offer!
 
 
 # Webpage 
-* [FEAST FINDER](https://feastfinder.netlify.app/)
-* [Application planning](https://trello.com/b/9LWlJaLO/feast-finder)
+* [Start You Feast Finder](https://feastfinder.netlify.app/)
+* [Trello](https://trello.com/b/9LWlJaLO/feast-finder)
 
 # Technologies Used
 ![REACT](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -20,19 +20,11 @@ Welcome to Feast Finder! Ever found yourself hungry, unsure of what to eat, and 
 ![MONGODB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 # Attributions
-* Chatgpt-create image
+* Chatgpt - use chatgpt create logo of feast finder
+* pixabay - some dishes and images are from pixabay
 
 
-# Next Steps:
-* change font across app
-* allow users to add dishes to favorites list
-* add photo upload for reviews
-* add rating min and max
-* populate dishes in restaurants
-* when we delete a restaurant — all it’s dishes should be deleted that were created by restaurant owner (Faris)
-* clean up database / dump and add clean
-* clear out all comments etc
-* sort reviews so newest is at the top
-* explore page includes // browse or search all dishes and restaurant
-* // from NewRestaurant TODO Add logic to check if the form is invalid
-* Change review edit view to be a pop-out text box
+# Next Steps
+* Add search botton so that allow users to quickly get their target restaurant or dish
+* Allow users to add dishes to favorites list, and show their favorites dishes and restaurants in their profile
+* Add photo upload for reviews
