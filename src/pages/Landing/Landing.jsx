@@ -24,7 +24,7 @@ const Landing = () => {
         </section>
       </main>
       <footer className={styles.footer}>
-          <p>© 2024 FEAST FINDERS INC. FORK RIGHTS RESERVED</p>
+        <p>© 2024 FEAST FINDERS INC. FORK RIGHTS RESERVED</p>
       </footer>
     </>
   )

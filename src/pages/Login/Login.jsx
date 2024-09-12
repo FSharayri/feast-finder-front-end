@@ -10,7 +10,6 @@ import styles from './Login.module.css'
 
 const LoginPage = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
-
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
     email: '',
@@ -45,7 +44,7 @@ const LoginPage = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      {/* <p className={styles.message}>{message}</p> */}
+      <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
       <h1>Log In</h1>
         <label className={styles.label}>
