@@ -8,7 +8,6 @@ import * as profileService from '../../services/profileService'
 // css
 import styles from './Profiles.module.css'
 
-
 const Profile = () => {
   const [profile, setProfile] = useState([])
 

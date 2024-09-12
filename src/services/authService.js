@@ -12,12 +12,9 @@ async function signup(signupFormData, photoData) {
       body: JSON.stringify(signupFormData),
     })
     const json = await res.json()
-
     if (json.err) throw new Error(json.err)
-
     if (json.token) {
       tokenService.setToken(json.token)
-
       if (photoData) {
         await addProfilePhoto(photoData)
       }
@@ -43,9 +40,7 @@ async function login(loginFormData) {
       body: JSON.stringify(loginFormData),
     })
     const json = await res.json()
-
     if (json.err) throw new Error(json.err)
-
     if (json.token) tokenService.setToken(json.token)
   } catch (err) {
     throw new Error(err)
@@ -63,9 +58,7 @@ async function changePassword(changePasswordFormData) {
       body: JSON.stringify(changePasswordFormData),
     })
     const json = await res.json()
-
     if (json.err) throw new Error(json.err)
-
     if (json.token) {
       tokenService.removeToken()
       tokenService.setToken(json.token)

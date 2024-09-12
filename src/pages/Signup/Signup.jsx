@@ -14,7 +14,6 @@ import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch'
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
   const imgInputRef = useRef(null)
-
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
     name: '',
@@ -29,7 +28,6 @@ const Signup = ({ handleAuthEvt }) => {
   const handleToggle = (evt,btn) => {
     evt.preventDefault()
     setIsRestaurant(btn === "restaurant");
-    console.log(isRestaurant)
   }
 
   const handleChange = evt => {
@@ -60,7 +58,6 @@ const Signup = ({ handleAuthEvt }) => {
     setPhotoData({ photo: evt.target.files[0] })
   }
   
-
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
@@ -89,7 +86,7 @@ const Signup = ({ handleAuthEvt }) => {
     <main className={styles.container}>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-      <h1>Sign Up</h1>
+        <h1>Sign Up</h1>
         <label className={styles.label}>
           Name
           <input type="text" value={name} name="name" onChange={handleChange} />

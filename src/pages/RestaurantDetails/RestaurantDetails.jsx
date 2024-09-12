@@ -10,7 +10,6 @@ import styles from './RestaurantDetails.module.css'
 //pages
 import DishList from "../DishList/DishList"
 
-
 const RestaurantDetails = (props) => {
   const {restaurantId} = useParams()
   const [restaurant, setRestaurant] = useState(null)
