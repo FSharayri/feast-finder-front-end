@@ -2,7 +2,6 @@
 import * as tokenService from './tokenService'
 // import { addPhoto as addRestaurantPhoto } from './profileService'
 
-
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/restaurants`
 
 async function index() {
@@ -34,19 +33,14 @@ async function create(restaurantFormData, photoData) {
       body: JSON.stringify(restaurantFormData)
     })
     const json = await res.json()
-
     if (json.err) throw new Error(json.err)
-
     if (json.token) 
       tokenService.setToken(json.token)
-    
     if (photoData) {
       const  photoRes = await addPhoto(photoData, json._id)
       json.photo = photoRes
     }
-  
     return json
-
   } catch (err) {
     throw new Error(err)
   }
@@ -105,5 +99,5 @@ export {
   create,
   deleteRestaurant as delete,
   addPhoto,
-  update
+  update,
 }

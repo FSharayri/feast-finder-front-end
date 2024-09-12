@@ -3,7 +3,6 @@ import { useState, useEffect} from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
-
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -19,8 +18,6 @@ import DishDetails from './pages/DishDetails/DishDetails'
 import EditDish from './pages/EditDish/EditDish'
 import NewDish from './pages/NewDish/NewDish'
 
-//import DishDetails from './pages/DishDetails/DishDetails'
-
 // components
 import NavBar from './components/NavBar/NavBar'
 import ExploreBar from './components/ExploreBar/ExploreBar'
@@ -34,7 +31,6 @@ import * as dishService from './services/dishService'
 
 // styles
 import './App.css'
-
 
 function App() {
   const [user, setUser] = useState(authService.
@@ -99,7 +95,7 @@ function App() {
     setDishes(dishes.filter(dish => dish._id !== deletedDish._id))
     navigate('/dishes')
   }
-  
+
   const handleAddDish = async (dishFormData,photo) => {
     const newDish = await dishService.create(dishFormData,photo)
     //updates the restaurant this dish was added to 
@@ -115,7 +111,6 @@ function App() {
 
   return (
     <>
-      
       <NavBar user={user} handleLogout={handleLogout} />
       <ExploreBar />
       <Routes>
@@ -178,7 +173,7 @@ function App() {
         />
         <Route
           path="/dishes"
-          element={<DishList dishes={dishes}  />
+          element={<DishList dishes={dishes} />
         }
         />
         <Route
@@ -209,7 +204,6 @@ function App() {
           <ProtectedRoute user={user}>
             <EditReview />
           </ProtectedRoute>
-
         }/>
       </Routes>
     </>
