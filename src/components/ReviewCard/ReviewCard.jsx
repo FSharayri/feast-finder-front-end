@@ -21,20 +21,19 @@ const ReviewCard = ({ dishId, review, user, handleDeleteReview }) => {
       <header>
         <span>
           <OwnerInfo content={review} />
+          </span>
           {review.owner._id === user.profile &&
             <>
               <NavLink to={`/dishes/${dishId}/reviews/edit`} state={review}>
-                <i className="fa-solid fa-pencil" alt="Edit Pencil"></i>
+                <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
               </NavLink>
               <button onClick={() => handleDeleteReview(review._id)}>
                 <i className="fas fa-trash" alt="Delete Trash Can"></i>
               </button>
             </>
           }
-        </span>
       </header>
       <DateCard createdAt={review.createdAt} />
-{/* Create user ability to UPLOAD PHOTO */}
       <div className={styles.rating}>
         {Array(5).fill().map((_, index) => (
           <img
