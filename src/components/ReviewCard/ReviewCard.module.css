@@ -18,6 +18,18 @@
     margin-right: 4px;
     filter: grayscale(100%);
   }
+
+  .container span img {
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    opacity: .8;
+    padding: 3px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+  
+  
   
   .container {
     background-color: #fff; /* White background for the card */
@@ -29,6 +41,8 @@
     max-width: 600px; /* Max width for larger screens */
     box-sizing: border-box; /* Ensure padding doesn't affect width */
   }
+
+  
   
   h2 {
     font-size: 1.1rem; /* Slightly larger than default size for emphasis */

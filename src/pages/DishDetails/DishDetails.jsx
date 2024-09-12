@@ -41,14 +41,14 @@ const DishDetails = (props) => {
   <main className={styles.container}>
     <article>
       <header>
-        <h1>{dish.name}</h1>
         {dish.photo ? 
           <img src={dish.photo} alt="Dish Image" />
           : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
         }
       </header>
+      <h1>{dish.name}</h1>
       <h2>{dish.restaurant?.name}</h2>
-      <h2>{dish.cost}</h2>
+      <h2>$ {dish.cost}</h2>
       {props.user?.profile===dish.owner._id &&
         <>
           <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
