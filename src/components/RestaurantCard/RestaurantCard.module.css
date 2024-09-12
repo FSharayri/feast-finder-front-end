@@ -9,12 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px; /* Reduced space under each card */
+  margin-top: 40px; 
   position: relative;
 }
 
 .container img {
-  width: 175px; /* Adjust the size of the image as necessary */
+  width: 175px; 
   height: 175px;
   border-radius: 10%;
   background: #ff0909;
@@ -28,21 +28,21 @@
   align-items: flex-end;
   position: absolute;
   top: 0;
-  right: 0; /* Same padding as image */
-  padding-right: 21px; /* Ensures text is padded similarly to the image */
+  right: 0; 
+  padding-right: 21px; 
 }
 
 .container .name {
   font-size: 19px;
   margin: 0;
-  padding-top: 14px; /* Match the image padding for alignment */
+  padding-top: 14px; 
   color: var(--primary-text-color);
 }
 
 .container .cuisine {
   font-size: 14px;
   color: var(--secondary-text-color);
-  margin-top: 5px; /* A bit of space between name and cuisine */
+  margin-top: 5px; 
 }
 
 header {

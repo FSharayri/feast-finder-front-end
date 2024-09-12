@@ -1,7 +1,7 @@
 .container {
-  width: 600px; /* Set a fixed width for the container */
+  width: 600px; 
   padding: 20px;
-  margin: 80px auto; /* Center the container */
+  margin: 80px auto; 
   border-radius: 5px;
   border: 1px solid var(--border);
   background-color: var(--card-background);
@@ -10,9 +10,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: center; /* Make the container fixed */
-  top: 80px; /* Distance from the top */
-  left: 20px; /* Distance from the left (you can adjust this if needed) */
+  position: center; 
+  top: 80px; 
+  left: 20px; 
 
 }
 
