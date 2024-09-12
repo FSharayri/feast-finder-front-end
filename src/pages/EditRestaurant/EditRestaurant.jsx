@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
 //css
@@ -23,6 +23,7 @@ const EditRestaurant = (props) => {
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>Edit Restaurant</h1>
+
         <label htmlFor="name-input">Name</label>
         <input
           required
@@ -33,8 +34,7 @@ const EditRestaurant = (props) => {
           placeholder="Name"
           onChange={handleChange}
         />
-        {/* TODO:Need to add dishes data here */}
-        
+
         <label htmlFor="category-input">Cuisine</label>
         <select
           required
@@ -43,9 +43,9 @@ const EditRestaurant = (props) => {
           value={formData.cuisine}
           onChange={handleChange}
         >
-        {cuisines.map((cuisine,idx)=> <option key={idx} value={cuisine}>{cuisine}</option>)}  
+          {cuisines.map((cuisine,idx)=> <option key={idx} value={cuisine}>{cuisine}</option>)}  
         </select>
-        
+
         <label htmlFor="license"> License Number</label>
         <input
           required
@@ -66,6 +66,7 @@ const EditRestaurant = (props) => {
           value={formData.licenseState}
           onChange={handleChange}
         />
+
         <label htmlFor="photo-input">Zipcode</label>
         <input
           type="number"

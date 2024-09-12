@@ -14,24 +14,23 @@ import forkIcon from '../../assets/icons/fork.svg'
 import DateCard from "../DeteCard/DateCard"
 
 
-
 const ReviewCard = ({ dishId, review, user, handleDeleteReview }) => {
   return (
     <article className={styles.container}>
       <header>
         <span>
           <OwnerInfo content={review} />
-          </span>
-          {review.owner._id === user.profile &&
-            <div className={styles.controls}>
-              <NavLink to={`/dishes/${dishId}/reviews/edit`} state={review}>
-                <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
-              </NavLink>
-              <button onClick={() => handleDeleteReview(review._id)}>
-                <i className="fas fa-trash" alt="Delete Trash Can"></i>
-              </button>
-            </div>
-          }
+        </span>
+        {review.owner._id === user.profile &&
+          <div className={styles.controls}>
+            <NavLink to={`/dishes/${dishId}/reviews/edit`} state={review}>
+              <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+            </NavLink>
+            <button onClick={() => handleDeleteReview(review._id)}>
+              <i className="fas fa-trash" alt="Delete Trash Can"></i>
+            </button>
+          </div>
+        }
       </header>
       <DateCard createdAt={review.createdAt} />
       <div className={styles.rating}>
@@ -45,7 +44,6 @@ const ReviewCard = ({ dishId, review, user, handleDeleteReview }) => {
         ))}
       </div>
       <h2>{review.comment}</h2>
-
     </article>
   );
 };

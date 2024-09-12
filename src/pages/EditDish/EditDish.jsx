@@ -7,11 +7,11 @@ import styles from './EditDish.module.css'
 
 const EditDish = (props) => {
   const { state } = useLocation()
-  
   const [formData, setFormData] = useState(state) 
   const handleChange = (evt) => {
   setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
     console.log(formData)
@@ -44,8 +44,6 @@ const EditDish = (props) => {
           placeholder="0"
           onChange={handleChange}
         />
-        <label htmlFor="category-input">Reviews</label>
-        
         <button type="submit">SUBMIT</button>
       </form>
     </main>
