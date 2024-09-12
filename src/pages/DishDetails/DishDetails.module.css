@@ -13,16 +13,37 @@
   position: center; /* Make the container fixed */
   top: 80px; /* Distance from the top */
   left: 20px; /* Distance from the left (you can adjust this if needed) */
+
 }
 
 .picture{
   aspect-ratio: 1/1;
-  width : 50%;
-  display: flex;
-  flex
+  width : 70%;
 }
 .picture *{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: left;
+  width: 100%;
+}
+.info *{
+  text-align: left;
+}
+.controls{
+  aspect-ratio: 1/1;
+  height:50%;
+  
+}
+
+.reviews{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
