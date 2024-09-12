@@ -62,8 +62,6 @@ const NewDish = (props) => {
     return false
   }
 
-  
-
   return (
     <main className={styles.container}>
       <p>{message}</p>
@@ -112,7 +110,7 @@ const NewDish = (props) => {
           />
         </label>
         <div>
-            <button disabled={isFormInvalid() || false}>SUBMIT</button>
+            <button disabled={isFormInvalid() || false}><i className="fa-solid fa-square-plus"></i></button>
           <Link to="/">CANCEL</Link>
         </div>
       </form>

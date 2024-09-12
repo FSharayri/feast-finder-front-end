@@ -152,15 +152,10 @@ return (
           onChange={handleChangePhoto}
           ref={imgInputRef}
         />
-      <div>
-        <button
-          className={styles.button}
-          disabled={ isFormInvalid() || isSubmitted }
-        >
-          {!isSubmitted ? 'SIGN UP' : '🍕 SENDING...'}
-        </button>
-        <Link to="/">CANCEL</Link>
-      </div>
+ <div>
+            <button disabled={isFormInvalid() || false}><i className="fa-solid fa-square-plus"></i></button>
+          <Link to="/">CANCEL</Link>
+        </div>
     </form>
   </main>
 )}

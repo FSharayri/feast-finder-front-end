@@ -1,81 +1,93 @@
 .container {
-  /* width: 100%; */
-  height: 220px;
-  padding: 14px 21px;
-  margin: 80px;
+  width: 600px; /* Set a fixed width for the container */
+  padding: 20px;
+  margin: 80px auto; /* Center the container */
   border-radius: 5px;
   border: 1px solid var(--border);
   background-color: var(--card-background);
-  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
   display: flex;
-  justify-content: center;
-  align-content: right;
+  flex-direction: column;
+  position: center; /* Make the container fixed */
+  top: 80px; /* Distance from the top */
+  left: 20px; /* Distance from the left (you can adjust this if needed) */
 }
 
 .container header {
-  margin-bottom: 14px;
-}
-
-.container span {
   display: flex;
-  align-items: center;
-  margin: 7px 0px 12px 0px;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.container span img {
+.container header img {
+  width: 80px; /* Smaller image size */
+  height: 80px;
+  border-radius: 10%; /* Rounded square */
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.container img {
+  width: 175px; /* Adjust the size of the image as necessary */
+  height: 175px;
+  border-radius: 10%;
+  border: 2px solid #ffc400da;
+  background: #ffc400da;
+  object-fit: cover;
+}
+
+.container header .restaurant-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.container header h1 {
   margin: 0;
-  width: 32px;
-    height: 32px;
-  opacity: .8;
-  padding: 3px;
-  border-radius: 50%;
+  font-size: 18px;
+}
+
+.container header h3 {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: var(--secondary-text-color);
+}
+
+.dish-list {
+  margin-left: 440px; /* Ensures the dish list starts after the fixed container */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for dishes */
+  gap: 20px;
+  padding: 20px;
+}
+
+.dish-list .dish-card {
+  padding: 10px;
   border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--card-background);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
-  margin: 0;
-  font-size: 19px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
+button {
+  margin: 5px;
 }
 
-.container p {
-  width: 100%;
-  font-size: 14px;
-  font-weight: 400;
-  overflow: hidden;
-  line-height: 1.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-    word-break: break-all;
-  text-align-last: left;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  
+@media only screen and (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.container div h4 {
-  font-size: 14px;
-  margin-bottom: 2px;
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.container div h5 {
-  font-size: 11px;
-}
-
-.container div > img {
-  width: 30px;
-    height: 30px;
-    object-fit: cover;
-}
-
-.container div section img {
-  width: 14px;
-    height: 14px;
+@media only screen and (min-width: 1500px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
