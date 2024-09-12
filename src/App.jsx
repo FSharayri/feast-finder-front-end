@@ -39,8 +39,8 @@ import './App.css'
 function App() {
   const [user, setUser] = useState(authService.
   getUser())
-  const [profile, setProfile] = useState([])
   const navigate = useNavigate()
+  //states
   const [restaurants, setRestaurants] = useState([])
   const [dishes, setDishes] = useState([])
 
@@ -54,7 +54,6 @@ function App() {
     // dish fetch
     const fetchAllDishes = async () => {
       const dishesData = await dishService.index()
-      
       setDishes(dishesData)
     }
     fetchAllDishes()
