@@ -1,16 +1,16 @@
 .container {
-  width: 600px; /* Set a fixed width for the container */
+  width: 600px; 
   padding: 20px;
-  margin: 80px auto; /* Center the container */
+  margin: 80px auto; 
   border-radius: 5px;
   border: 1px solid var(--border);
   background-color: var(--card-background);
   box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  position: center; /* Make the container fixed */
-  top: 80px; /* Distance from the top */
-  left: 20px; /* Distance from the left (you can adjust this if needed) */
+  position: center; 
+  top: 80px; 
+  left: 20px; 
 }
 
 .container header {
@@ -21,15 +21,15 @@
 }
 
 .container header img {
-  width: 80px; /* Smaller image size */
+  width: 80px; 
   height: 80px;
-  border-radius: 10%; /* Rounded square */
+  border-radius: 10%; 
   object-fit: cover;
   border: 2px solid var(--border);
 }
 
 .container img {
-  width: 175px; /* Adjust the size of the image as necessary */
+  width: 175px; 
   height: 175px;
   border-radius: 10%;
   background: #ff0909;
@@ -55,9 +55,9 @@
 }
 
 .dish-list {
-  margin-left: 440px; /* Ensures the dish list starts after the fixed container */
+  margin-left: 440px; 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for dishes */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   gap: 20px;
   padding: 20px;
 }
