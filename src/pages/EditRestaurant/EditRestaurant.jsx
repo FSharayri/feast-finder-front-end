@@ -76,14 +76,14 @@ const EditRestaurant = (props) => {
           placeholder="Zipcode"
           onChange={handleChange}
         />
-        <label htmlFor="photo-input">Photo</label>
-        {formData.photo}
+        {//future ice-box item
+        /* <label htmlFor="photo-input">Photo</label>
         <input 
             type="file" 
             name="photo" 
-            // onChange={handleChangePhoto}
+            onChange={handleChangePhoto}
             ref={imgInputRef}
-        />
+        /> */}
         
         <button type="submit">SUBMIT</button>
       </form>
