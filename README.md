@@ -7,9 +7,9 @@
 Feast Finder is your go-to app for discovering and sharing the best dishes in town. Whether you’re new to the area or a seasoned local, Feast Finder can guide you to top-rated meals and hidden gems near you. Rate individual dishes with our Fork Rating system, and watch as your favorite restaurants earn scores based on your top picks. Connect with fellow food lovers, find trending dishes, and build your personalized list of must-try spots. Feast Finder is your ultimate guide to enjoying the best flavors your city has to offer!
 
 # Feast Finders Team
-* [Faris Sharayri - Full Stack Developer, UI Developer, Github Manager](https://github.com/FSharayri)
-* [Ito Aghayere - Full Stack Developer, UI Developer, Database Manager, Project Manager](https://github.com/incogn-ito)
-* [Na Xu - Full Stack Developer, UI Developer, Documents Manager](https://github.com/Nani1345)
+* [Faris Sharayri](https://github.com/FSharayri) - Full Stack Developer, UI Developer, Github Manager
+* [Ito Aghayere](https://github.com/incogn-ito) - Full Stack Developer, UI Developer, Database Manager, Project Manager
+* [Na Xu](https://github.com/Nani1345) - Full Stack Developer, UI Developer, Documents Manager
 
 # [Open Feast Finder](https://feastfinder.netlify.app/)
 
