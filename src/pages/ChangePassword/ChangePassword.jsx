@@ -43,7 +43,7 @@ const ChangePassword = ({ handleAuthEvt }) => {
     <main className={styles.container}>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-      <h1>Change Password</h1>
+        <h1>Change Password</h1>
         <label className={styles.label}>
           Current Password
           <input

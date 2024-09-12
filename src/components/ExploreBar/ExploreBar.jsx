@@ -14,6 +14,5 @@ const ExploreBar = () => {
   )
 }
 
-
 export default ExploreBar
 

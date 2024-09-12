@@ -10,7 +10,7 @@ import styles from './NavBar.module.css'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container}>
-       <NavLink to="/"><img src={logo} alt="A cute googly eyed fork" /></NavLink>
+      <NavLink to="/"><img src={logo} alt="A cute googly eyed fork" /></NavLink>
       {user ?
         <ul>
           <li><NavLink to="/profile">Profile</NavLink></li>
