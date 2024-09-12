@@ -1,6 +1,6 @@
-Home Page
+# Home Page and Forker
 <img src = './src/assets/branding/landing.png' alt = 'Home page' width = 80%>
-Forker
+
 <img src = './src/assets/branding/fork.png' alt = 'Home page' width = 80%>
 
 # FEAST FINDER
