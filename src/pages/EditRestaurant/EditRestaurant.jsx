@@ -10,7 +10,6 @@ const EditRestaurant = (props) => {
   
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  const imgInputRef = useRef(null)
 
   const handleChange = (evt) => {
   setFormData({ ...formData, [evt.target.name]: evt.target.value })

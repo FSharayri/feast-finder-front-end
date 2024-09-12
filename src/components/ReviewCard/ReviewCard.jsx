@@ -23,14 +23,14 @@ const ReviewCard = ({ dishId, review, user, handleDeleteReview }) => {
           <OwnerInfo content={review} />
           </span>
           {review.owner._id === user.profile &&
-            <>
+            <div className={styles.controls}>
               <NavLink to={`/dishes/${dishId}/reviews/edit`} state={review}>
                 <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
               </NavLink>
               <button onClick={() => handleDeleteReview(review._id)}>
                 <i className="fas fa-trash" alt="Delete Trash Can"></i>
               </button>
-            </>
+            </div>
           }
       </header>
       <DateCard createdAt={review.createdAt} />

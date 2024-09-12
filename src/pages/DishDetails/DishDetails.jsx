@@ -39,26 +39,28 @@ const DishDetails = (props) => {
 
   return (
   <main className={styles.container}>
-    <article>
-      <header>
+    <article className={styles.info}>
+      <div className={styles.details}>
         {dish.photo ? 
-          <img src={dish.photo} alt="Dish Image" />
-          : <img src="https://picsum.photos/320/240/" alt="A random lorem picsum photo" />
+          <div className={styles.picture}><img src={dish.photo} alt="Dish Image" /></div>
+          : null
         }
-      </header>
-      <h1>{dish.name}</h1>
-      <h2>{dish.restaurant?.name}</h2>
-      <h2>$ {dish.cost}</h2>
-      {props.user?.profile===dish.owner._id &&
-        <>
-          <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
-            <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
-          </NavLink>  
-          <button onClick={() => props.handleDeleteDish(dishId)}><i className="fas fa-trash" alt="Delete Trash Can"></i></button>
-        </>
-      }
+        <h1>{dish.name}</h1>
+        <h2>Restaurant: {dish.restaurant?.name}</h2>
+        <h2>Price: ${dish.cost}</h2>
+      </div>
+      <div className={styles.controls}>
+        {props.user?.profile===dish.owner._id &&
+          <>
+            <NavLink to={`/dishes/${dishId}/edit`} state={dish}>
+              <button><i className="fa-solid fa-pencil" alt="Edit Pencil"></i></button>
+            </NavLink>  
+            <button onClick={() => props.handleDeleteDish(dishId)}><i className="fas fa-trash" alt="Delete Trash Can"></i></button>
+          </>
+        }
+      </div>
       </article>
-    <section>
+    <section className={styles.reviews}>
       <h5>{dish.reviews.length} reviews</h5>
       <NewReview handleAddReview={handleAddReview}/>
       <Reviews dishId={dishId} reviews={dish.reviews} user={props.user} handleDeleteReview={handleDeleteReview}/>

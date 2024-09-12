@@ -18,14 +18,16 @@
 }
 
 .container span {
+  width: 100%;
   display: flex;
   align-items: center;
   margin: 7px 0px 12px 0px;
-  justify-items: flex-end;
+  justify-content: space-between;
 }
 
 .container h1 {
-  margin: 0;
+  margin: 15px;
+
   font-size: 19px;
   overflow: hidden;
   display: -webkit-box;

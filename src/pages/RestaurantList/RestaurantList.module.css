@@ -3,6 +3,7 @@
     row-gap: 14px;
     width: 100%;
     padding: 21px;
+    margin-top:50px ;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -29,14 +30,27 @@
 
 .cuisine{
   text-align: left;
-  padding-top: 40px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  padding : 20px;
+  background-color: #0d010335;
+  border-radius: 15px;
 
 }
 
 .bars{
   min-width: 100%;
-  background-color: #D77d6b;
+  text-align: left;
+  border: 1px 1px solid #ffc400;
+  padding-left : 24px;
+  padding-top: 10px;
+  background-image: linear-gradient(to right,#e4e9b286, #ffc40000);
+  margin-left:-20px;
+
+}
+.bars h1{
+  font-size: x-large;
+  
+  text-align: left;
 }
