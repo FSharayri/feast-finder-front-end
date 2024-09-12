@@ -35,7 +35,7 @@ const DishDetails = (props) => {
     setDish(updatedDish)
   }
 
-  if(!dish) return <p>Loading...</p>
+  if(!dish) return <p>LOADING...</p>
 
   return (
   <main className={styles.container}>

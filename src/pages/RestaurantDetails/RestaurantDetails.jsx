@@ -25,7 +25,7 @@ const RestaurantDetails = (props) => {
   
   // if (props.user.profile===restaurant.owner._id) controls=true
   
-  if(!restaurant) return <p>Loading...</p>
+  if(!restaurant) return <p>LOADING...</p>
   
   return (
     <main className={styles.container}>
