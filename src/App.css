@@ -5,7 +5,7 @@
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #f2f4f8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,7 +23,7 @@ html, body {
 
 body {
   overflow: auto;
-  padding-top: 80px;
+  padding-top: 75px;
 }
 
 article img {

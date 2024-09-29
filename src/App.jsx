@@ -44,6 +44,7 @@ function App() {
     //restaurant fetch
     const fetchAllRestrants = async () => {
       const restaurantsData = await restaurantService.index()
+      
       setRestaurants(restaurantsData) 
     }
     fetchAllRestrants()
