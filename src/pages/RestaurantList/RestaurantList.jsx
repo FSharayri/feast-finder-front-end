@@ -24,11 +24,8 @@ const RestaurantList = ({restaurants}) => {
     }
     cuisinesArray.sort((a,b)=> b[1].length-a[1].length)
     const cuisinesNames = cuisinesArray.map(cuisine=>cuisine[0])
-    console.log(cuisinesArray)
+    const filteredCuisine = cuisinesArray?.filter(cuisine => cuisine[0]===selectedCuisine ) 
 
-
-    const filteredCuisine = cuisinesArray?.filter(cuisine => cuisine[0]===selectedCuisine)
-    
     return(
       <>
         <CuisineTabBar
@@ -38,9 +35,19 @@ const RestaurantList = ({restaurants}) => {
         />
         <main className={styles.container}>
           {/*  line below filters cuisines array to find the selected cuisine, then maps over that selected cuisines restaurants for display */}
-        {filteredCuisine?.at(0)?.at(1).map(restaurant=>
-            <RestaurantCard restaurant={restaurant} key={restaurant._id} />
-        )}
+        {selectedCuisine?
+          filteredCuisine?.at(0)?.at(1).map(restaurant=>
+              <RestaurantCard restaurant={restaurant} key={restaurant._id} />
+              
+          )
+        :
+        // if no cuisine is chosen => all restaurants are displayed
+        cuisinesArray.map(cuisine => 
+          cuisine[1].map(rest=>
+            <RestaurantCard restaurant={rest} key={rest._id} />
+          )
+        )
+      }
     
         </main>
       </>
