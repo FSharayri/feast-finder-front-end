@@ -11,18 +11,19 @@
   position: fixed; 
   z-index: 3;
   background-color: beige;
-  
 }
 
 .tabButton {
   background: none;
-  border: none;
-  padding: 0px 10px;
+  padding: 5px 10px;
   cursor: pointer;
   font-size: 16px;
+  font-weight:bolder;
   margin-right: 10px;
   color: #333;
-  border-bottom: 2px solid transparent;
+  border-radius: 1px;
+  border: none;
+
 }
 
 .tabButton:hover {
@@ -31,7 +32,7 @@
 
 .tabButton.active {
   color: #000;
-  background-color: beige;
+  background-color: #ffc400;
   border: 0.5px solid #000;
 }
 
