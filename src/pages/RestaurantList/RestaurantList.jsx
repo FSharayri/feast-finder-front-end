@@ -16,7 +16,7 @@ const RestaurantList = ({restaurants}) => {
       }else {
         cuisines[rest.cuisine].push(rest)
       }
-    });
+    })
     // sorts cuisine by amount of restaurants
     const cuisinesArray =[]
     for (let cuisine in cuisines){
