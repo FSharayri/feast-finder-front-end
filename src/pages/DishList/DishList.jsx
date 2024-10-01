@@ -32,9 +32,6 @@ const DishList = ({dishes}) => {
         onSelectCuisine={setSelectedCuisine}
     />
     <main className={styles.container}>
-      {dishes.map(dish=>
-        <DishCard dish={dish} key={dish._id}/>
-      )}
       {selectedCuisine?
       filteredCuisine?.at(0).at(1).map(dish=>
         <DishCard dish={dish} key={dish._id}/>
