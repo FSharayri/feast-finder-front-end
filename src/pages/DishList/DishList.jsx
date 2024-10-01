@@ -1,3 +1,6 @@
+import { useState } from 'react'
+
+
 // css
 import styles from './DishList.module.css'
 
@@ -5,7 +8,7 @@ import styles from './DishList.module.css'
 import DishCard from '../../components/DishCard/DishCard';
 
 const DishList = ({dishes}) => {
-  
+  const [selectedCuisine , setSelectedCuisine] = useState(null);
   return ( 
     <main className={styles.container}>
       {dishes.map(dish=>
